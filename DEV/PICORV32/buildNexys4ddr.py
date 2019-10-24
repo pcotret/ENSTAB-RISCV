@@ -39,7 +39,7 @@ class BaseSoC(SoCCore):
 		# Buttons
 		SoCCore.add_csr(self,"buttons")
 		user_buttons = Cat(*[platform.request("user_btn", i) for i in range(5)])
-		self.submodules.switchs = gpio.GPIOIn(user_buttons)
+		self.submodules.buttons = gpio.GPIOIn(user_buttons)
 
 # Build --------------------------------------------------------------------------------------------
 
