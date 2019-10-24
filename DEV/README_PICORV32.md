@@ -6,6 +6,7 @@
 
 **Step3**: lancer la commande:
 ./setup.py init install --user
+Nota: l'installation du GCC RICV est longue, patienter...
 
 **step4**: 
 dans ~/.local/lib/python3.7/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/software/common.mak
