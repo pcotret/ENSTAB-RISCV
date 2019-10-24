@@ -26,6 +26,11 @@ if len(sys.argv) < 2:
     exit()
 
 if "init" in sys.argv[1:]:
+    
+    os.system("wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.1.0-2019.01.0-x86_64-linux-ubuntu14.tar.gz")
+    os.system("tar -xvf riscv64-unknown-elf-gcc-8.1.0-2019.01.0-x86_64-linux-ubuntu14.tar.gz")
+    os.system("mv riscv64-unknown-elf-gcc-8.1.0-2019.01.0-x86_64-linux-ubuntu14 riscv64")
+    
     for name in repos.keys():
         url, need_recursive, need_develop = repos[name]
         # clone repo (recursive if needed)
