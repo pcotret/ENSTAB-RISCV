@@ -2,7 +2,7 @@
 
 *Step1*: Créer un dossier pour le projet.
 
-*Step2*: télécharger l'ensemble du contenu du dossier DEV
+*Step2*: télécharger l'ensemble du contenu du dossier DEV: https://github.com/SylvainEnsta/RISCV/tree/master/DEV
 
 *Step3*: lancer la commande:
 ./setup.py init install --user
