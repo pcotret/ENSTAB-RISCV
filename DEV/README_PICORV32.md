@@ -1,4 +1,4 @@
-# RISCV Installation d'un processuer RISCV PicoRV32 sur FPGA NEXYS 4 DDR
+# Installation d'un processuer RISCV PicoRV32 sur FPGA NEXYS 4 DDR
 
 **Step1**: Créer un dossier pour le projet.
 
