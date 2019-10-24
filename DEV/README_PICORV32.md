@@ -6,6 +6,7 @@
 
 **Step3**: lancer la commande:
 ./setup.py init install --user
+
 Nota: l'installation du GCC RICV est longue, patienter...
 
 **step4**: 
