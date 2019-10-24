@@ -119,4 +119,7 @@ Voici une synthèse des projets ayant retenu notre attention :
 
 
 
-La liste ci-dessus n'est pas exhaustive et sera mise à jour au fil du projet. 
+La liste ci-dessus n'est pas exhaustive et sera mise à jour au fil du projet.
+
+.
+
