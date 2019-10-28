@@ -119,6 +119,10 @@ Voici une synthèse des projets ayant retenu notre attention :
 
 8. **RIVER CPU** |VHDL|RV64G? ISA|Dernière màj: 25/10/19|Licence : Apache.
   https://github.com/sergeykhbr/riscv_vhdl |Auteur : Sergey khbr
+  
+9. **SweRV** |systemVerilog|RV64IMC ISA|Dernière màj: 15/10/19|Licence : Apache.
+  https://github.com/chipsalliance/Cores-SweRV |Auteur : Western Digital
+  Il y a également une procédure pour générer un SoC autour de ce CPU pour la Nexys4 DDR https://github.com/westerndigitalcorporation/swerv_eh1_fpga
 
 La liste ci-dessus n'est pas exhaustive et sera mise à jour au fil du projet.
 
