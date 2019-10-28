@@ -67,7 +67,7 @@ Voici une synthèse des projets ayant retenu notre attention :
 
    La documentation y est complète, la chaine de compilation y est décrite ainsi que différents Testbenches.
 
-   
+
 
 2. **Potato Processor** |VHDL|RV32I|Dernière màj: 1 an|Licence: BSD (libre).
 
@@ -75,7 +75,7 @@ Voici une synthèse des projets ayant retenu notre attention :
 
    Evoqué lors de notre première réunion, la page gitHub de ce projet est bien documentée mais semble inactive depuis un an. Nous ne la retrouvons pas non plus dans la liste des projets référencés sur la page officielle.
 
-   
+
 
 3. **DarkRISCV** |Verilog|RV32I|Dernière màj: -1mois|Licence: BSD (libre).
 
@@ -85,7 +85,7 @@ Voici une synthèse des projets ayant retenu notre attention :
 
    A suivre..
 
-   
+
 
 4. **SCR1** |systemVerilog|RV32I\|E[MC] ISA|Dernière màj: -1mois|Licence: SHL (commerciale).
 
@@ -93,7 +93,7 @@ Voici une synthèse des projets ayant retenu notre attention :
 
    Le projet est récent et référencé sur la liste officielle. mais une gamme plus étendue est disponible sur le site de l'entreprise (https://syntacore.com) disponible sous licence commerciale, seul le SCR1 semble avoir un SDK libre. Le GitHub est bien fourni, et l'entreprise communique sur ses produits (cf conférence P. Cotret). A voir donc....
 
-   
+
 
 5. **Pulp** **RI5CY: RISC-V Core**|systemVerilog|RV32IMFC|Dernière màj: -1mois|Licence: SHL (commerciale).
 
@@ -101,15 +101,15 @@ Voici une synthèse des projets ayant retenu notre attention :
 
    Dans la liste des projets évoqués par Pascal, le RI5CY est spécifiquement développé pour les plateformes PULP et semble optimisé pour le calcul parallèle. A ce stade, il est difficile de dire si ce projet sera transposable sur une autre plateforme.
 
-   
+
 
 6. **LowRISC** / **Ibex (formerly Zero-riscy)** |systemVerilog|RV32IM|Dernière màj: -1mois|Licence: Apache (commerciale).
 
-   https://github.com/lowRISC/ibex|Auteur: https://www.lowrisc.org/ 
+   https://github.com/lowRISC/ibex|Auteur: https://www.lowrisc.org/
 
-   Egalement dans la liste de pascal. A l'origine ce projet était nommé zero-riscy pour les plateformes PULP (voir ci-dessus). 
+   Egalement dans la liste de pascal. A l'origine ce projet était nommé zero-riscy pour les plateformes PULP (voir ci-dessus).
 
-   
+
 
 7. **ORCA** |VHDL|RV32I / RV32IM |Dernière màj: 5 mois|Licence: BSD (libre).
 
@@ -117,9 +117,9 @@ Voici une synthèse des projets ayant retenu notre attention :
 
    Projet en VHDL, le GITHub semble complet et contient également un exemple pour une installation sur une carte ALTERA DE2-115 identique à celle utilisée en cours pour l'implémentation du NIOS.
 
-
+8. **RIVER CPU** |VHDL|RV64G? ISA|Dernière màj: 25/10/19|Licence : Apache.
+  https://github.com/sergeykhbr/riscv_vhdl |Auteur : Sergey khbr
 
 La liste ci-dessus n'est pas exhaustive et sera mise à jour au fil du projet.
 
 .
-
