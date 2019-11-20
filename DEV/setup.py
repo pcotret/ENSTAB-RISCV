@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.7
+#!/usr/bin/env python3
 
 import os
 import sys
@@ -47,9 +47,9 @@ if "install" in sys.argv[1:]:
         if need_develop:
             os.chdir(os.path.join(current_path, name))
             if "--user" in sys.argv[1:]:
-                os.system("python3.7 setup.py install --user")
+                os.system("python3 setup.py install --user")
             else:
-                os.system("python3.7 setup.py install")
+                os.system("python3 setup.py install")
 
 if "update" in sys.argv[1:]:
     for name in repos.keys():
