@@ -1,6 +1,6 @@
 # RISCV
 
-*Etape 0*: s'assurer d'avoir Python 3.5+ et l'outils de développement FPGA du vendeur (vivado).
+*Etape 0*: s'assurer d'avoir Python 3.5+ et l'outils de développement FPGA du vendeur (vivado). Ainsi que les drivers de la carte Nexys4-DDR.
 
 *Etape 1*: installation de LiteX et de ses dépendances
 
@@ -13,6 +13,7 @@
 ```bash
 export PATH=$PATH:./riscv64/bin/
 ```
+Nota: dans certain cas, il est nécessaire de préciser le chemin complet vers le cross-compilateur.
 
 *Etape 3*: Synthèse de l'architecture pour la Nexys4-DDR
 
