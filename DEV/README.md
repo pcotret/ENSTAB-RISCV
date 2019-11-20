@@ -8,7 +8,11 @@
 ./setup.py init install --user
 ```
 
-*Etape 2*: chemin vers le cross-compilateur RISC-V
+Nota: définir les fichiers.py comme executables (click droit / properties/ Execute)
+
+
+
+Etape 2*: chemin vers le cross-compilateur RISC-V
 
 ```bash
 export PATH=$PATH:./riscv64/bin/
