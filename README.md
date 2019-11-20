@@ -35,3 +35,4 @@ https://github.com/SylvainEnsta/RISCV/blob/master/DEV/README_PICORV32.md
 **Liens utiles:**
 
 Litex: https://github.com/enjoy-digital/litex
+https://reference.digilentinc.com/reference/programmable-logic/nexys-4-ddr/reference-manual
