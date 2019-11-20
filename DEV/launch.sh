@@ -1,8 +1,5 @@
 
 #!/bin/bash
-export PATH =$PATH:./riscV64/bin
-echo 'export done'
-echo '================================'
 ./load.py
 echo 'Load done'
 echo '================================'
