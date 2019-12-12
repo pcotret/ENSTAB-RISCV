@@ -22,17 +22,14 @@
                                                      |__/               
 ```
 
-# **Etapes:**
+# Etapes
+- Etape N°1: Analyse préliminaire:
+  https://github.com/SylvainEnsta/RISCV/blob/master/Rapport/Etape1_Analyse.md
 
-Etape N°1: Analyse préliminaire:
+- Etape N°2: Installation du processeur PICORV32 sur FPGA NEXYS 4 DDR:
+  https://github.com/SylvainEnsta/RISCV/blob/master/DEV/README.md
 
-https://github.com/SylvainEnsta/RISCV/blob/master/Rapport/Etape1_Analyse.md
+## Liens utiles
 
-Etape N°2: Installation du processeur PICORV32 sur FPGA NEXYS 4 DDR:
-
-https://github.com/SylvainEnsta/RISCV/blob/master/DEV/README_PICORV32.md
-
-**Liens utiles:**
-
-Litex: https://github.com/enjoy-digital/litex
-NEXYS DDR4 Manual: https://reference.digilentinc.com/reference/programmable-logic/nexys-4-ddr/reference-manual
+- Litex: https://github.com/enjoy-digital/litex
+- NEXYS DDR4 Manual: https://reference.digilentinc.com/reference/programmable-logic/nexys-4-ddr/reference-manual

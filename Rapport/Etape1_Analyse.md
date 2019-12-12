@@ -48,12 +48,12 @@ Le site officiel de la fondation RISC-V propose une liste de projets qui s'effor
 
 Afin d'affiner notre sélection, nous nous sommes imposés quelques critères:
 
-- La licence: de préférence libre
-- Le langage: de préférence VHDL, Verilog, SystemeVerilog
+- La licence : de préférence libre
+- Le langage : de préférence VHDL, Verilog, SystemeVerilog
 - Le projet doit être disponible sous GitHub
 - Le projet doit être suffisamment documenté
 - Le projet doit être régulièrement mis à jour
-- Le projet a t'il été testé sur FPGA?
+- Le projet a-t-il été testé sur FPGA?
 
 
 
@@ -117,14 +117,16 @@ Voici une synthèse des projets ayant retenu notre attention :
 
    Projet en VHDL, le GITHub semble complet et contient également un exemple pour une installation sur une carte ALTERA DE2-115 identique à celle utilisée en cours pour l'implémentation du NIOS.
 
+   
+
 8. **RIVER CPU** |VHDL|RV64G? ISA|Dernière màj: 25/10/19|Licence : Apache.
-  https://github.com/sergeykhbr/riscv_vhdl |Auteur : Sergey khbr
-  
+     https://github.com/sergeykhbr/riscv_vhdl |Auteur : Sergey khbr
+
+     
+
 9. **SweRV** |systemVerilog|RV64IMC ISA|Dernière màj: 15/10/19|Licence : Apache.
-  https://github.com/chipsalliance/Cores-SweRV |Auteur : Western Digital
-  
+     https://github.com/chipsalliance/Cores-SweRV |Auteur : Western Digital
+
   Il y a également une procédure pour générer un SoC autour de ce CPU pour la Nexys4 DDR https://github.com/westerndigitalcorporation/swerv_eh1_fpga
 
 La liste ci-dessus n'est pas exhaustive et sera mise à jour au fil du projet.
-
-.
