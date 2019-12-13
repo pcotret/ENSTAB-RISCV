@@ -30,7 +30,7 @@ https://github.com/SylvainEnsta/RISCV/blob/master/Rapport/Etape1_Analyse.md
 
 Etape N°2: Installation du processeur PICORV32 sur FPGA NEXYS 4 DDR:
 
-https://github.com/SylvainEnsta/RISCV/blob/master/DEV/README_PICORV32.md
+https://github.com/SylvainEnsta/RISCV/tree/master/DEV
 
 **Liens utiles:**
 
