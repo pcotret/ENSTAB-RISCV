@@ -35,4 +35,7 @@ https://github.com/SylvainEnsta/RISCV/tree/master/DEV
 **Liens utiles:**
 
 Litex: https://github.com/enjoy-digital/litex
+
 NEXYS DDR4 Manual: https://reference.digilentinc.com/reference/programmable-logic/nexys-4-ddr/reference-manual
+
+PmodJSTK2 Manual: https://reference.digilentinc.com/_media/reference/pmod/pmodjstk2/pmodjstk2_rm.pdf
