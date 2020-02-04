@@ -14,7 +14,6 @@ repos = [
 
     # LiteX SoC builder
     ("litex",      ("https://github.com/enjoy-digital/", True,  True)),
-
 ]
 repos = OrderedDict(repos)
 
@@ -23,6 +22,7 @@ if len(sys.argv) < 2:
     print("- init")
     print("- install (add --user to install to user directory)")
     print("- update")
+    print("- driver")
     exit()
 
 if "init" in sys.argv[1:]:
@@ -56,4 +56,10 @@ if "update" in sys.argv[1:]:
         # update
         print("[updating " + name + "]...")
         os.chdir(os.path.join(current_path, name))
-os.system("git pull")
+        os.system("git pull")
+        
+if "driver" in sys.argv[1:]:
+    print("[installing adept.runtime]...")
+    os.system("../../drivers_nexys4ddr/digilent.adept.runtime_2.19.2-x86_64/install.sh")
+    print("[installing adept.utilities]...")
+    os.system("../../drivers_nexys4ddr/digilent.adept.utilities_2.2.1-x86_64")

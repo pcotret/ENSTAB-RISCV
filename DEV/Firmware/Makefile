@@ -3,7 +3,7 @@ BUILD_DIR=../soc_basesoc_nexys4ddr/
 include $(BUILD_DIR)/software/include/generated/variables.mak
 include $(SOC_DIRECTORY)/software/common.mak
 
-OBJECTS=isr.o main.o
+OBJECTS=isr.o delay.o display.o spijoystick.o snake.o main.o
 
 all: firmware.bin
 
@@ -35,6 +35,6 @@ main.o: main.c
 	$(assemble)
 
 clean:
-	$(RM) $(OBJECTS) $(OBJECTS:.o=.d) firmware.elf .*~ *~
+	$(RM) $(OBJECTS) $(OBJECTS:.o=.d) .*~ *~
 
 .PHONY: all main.o clean load
