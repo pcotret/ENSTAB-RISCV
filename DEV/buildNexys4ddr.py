@@ -15,8 +15,8 @@ from litex.soc.interconnect.csr import *
 from litex.soc.cores import gpio
 from litex.soc.cores import pwm
 from litex.soc.cores import spi
-import sevensegment
-import vgacontroller
+from module import sevensegment
+from module import vgacontroller
 
 class RGBLed(Module, AutoCSR):
     def __init__(self, pads):
