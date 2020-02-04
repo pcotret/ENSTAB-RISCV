@@ -41,7 +41,7 @@ _io = [
     ("sw", 14, Pins("U11"), IOStandard("LVCMOS33")),
     ("sw", 15, Pins("V10"), IOStandard("LVCMOS33")),
     
-	("btnc", 0, Pins("N17"), IOStandard("LVCMOS33")),
+    ("btnc", 0, Pins("N17"), IOStandard("LVCMOS33")),
     ("btnd", 0, Pins("P18"), IOStandard("LVCMOS33")),
     ("btnu", 0, Pins("M18"), IOStandard("LVCMOS33")),
     ("btnr", 0, Pins("M17"), IOStandard("LVCMOS33")),
