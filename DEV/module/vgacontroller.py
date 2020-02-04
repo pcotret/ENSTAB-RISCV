@@ -31,8 +31,6 @@ class VGAcontroller(Module, AutoCSR):
         self.h_count = Signal(10)
         self.v_count = Signal(10)
         
-        
-        
         """
         vram_data_width = 4 # color bits per pixel 2^6 > 3*12bits
         vram_depth = h_rez * v_rez
@@ -42,14 +40,25 @@ class VGAcontroller(Module, AutoCSR):
         """
         # # #
         self._writeenable = CSRStorage()
-        self._adr = CSRStorage(19)
-        self._data_write = CSRStorage(32)
-        self._sel = CSRStorage(4)
+        self._adr = CSRStorage(sram.bus.adr_width)
+        self._data_write = CSRStorage(sram.bus.data_width)
         
         self.comb += [
-        	If(self._writeenable.storage,
-        		sram.bus.write(self._adr.storage, self._data_write.storage, self._sel.storage)
-        	)
+            If(self._writeenable.storage,
+               sram.bus.adr.eq(self._adr.storage),
+               sram.bus.dat_w.eq(self._data_write.storage),
+               sram.bus.sel.eq(2 ** len(sram.bus.sel) - 1),
+               sram.bus.we.eq(1)
+            )
+        ]
+
+        self.comb += [
+            If(sram.bus.ack == 0,
+               sram.bus.cyc.eq(1),
+               sram.bus.stb.eq(1)
+            ).Else(sram.bus.cyc.eq(0),
+               sram.bus.stb.eq(0)
+            )
         ]
         
         
@@ -128,20 +137,25 @@ class VGAcontroller(Module, AutoCSR):
 			    ),
 			    
 			    #display sync
-			    If(self.v_count >= v_rez/2,
+			    If(self.v_count >= v_rez,
 			        self.active.eq(0)
 			    ).Else(
-			        If(self.h_count >= h_rez/2,
+			        If(self.h_count >= h_rez,
 			            self.active.eq(0)
 			        ).Else(
 			            self.active.eq(1)
 			        )
 			    ),
 			    
+			    If(~self._writeenable.storage,
+                    sram.bus.adr.eq(self.v_count * h_rez + self.h_count),
+                    sram.bus.we.eq(0)
+                ),
+			    
 			    If(self.active,
-			    	r_out.eq(sram.bus.read(self.v_count*h_rez/2+self.h_count)),#self._red.storage),
-		        	g_out.eq(sram.bus.read(self.v_count*h_rez/2+self.h_count)),#self._green.storage),
-		        	b_out.eq(sram.bus.read(self.v_count*h_rez/2+self.h_count))#self._blue.storage)
+			    	r_out.eq(sram.bus.dat_r),#self._red.storage),
+		        	g_out.eq(sram.bus.dat_r),#self._green.storage),
+		        	b_out.eq(sram.bus.dat_r)#self._blue.storage)
 			    ).Else(
 			        r_out.eq(0),
 			        g_out.eq(0),
@@ -149,4 +163,3 @@ class VGAcontroller(Module, AutoCSR):
 			    )
 	        )
         ]
-
