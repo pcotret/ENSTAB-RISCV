@@ -12,7 +12,7 @@ https://www.xilinx.com/products/silicon-devices/fpga/artix-7.html#productTable
 
 voici ses caractéristiques principales:
 
-![image-20200219111932232](/Users/sylvain/Library/Application Support/typora-user-images/image-20200219111932232.png)
+![XCA100T](./Images/XCA100T.png)
 
 
 
@@ -26,7 +26,7 @@ Le manuel de référence est diponible ici: https://reference.digilentinc.com/re
 
 
 
-![image-20200219113153542](/Users/sylvain/Library/Application Support/typora-user-images/image-20200219113153542.png)
+![NEXYS4DDR](/Users/sylvain/Desktop/Projet/RISCV/RISCV/Rapport/Images/NEXYS4DDR.png)
 
 ## Key Features
 

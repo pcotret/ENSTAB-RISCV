@@ -1,6 +1,6 @@
 # Migen
 
-![image-20200219093241719](/Users/sylvain/Library/Application Support/typora-user-images/image-20200219093241719.png)
+![migen](./Images/migen.png)
 
 Migen est une bibliothèque Python permettant de manipuler et générer plus facilement des circuits logiques complexes. voici deux lien vers les sites sites du développeur (S Bourdeauducq):
 

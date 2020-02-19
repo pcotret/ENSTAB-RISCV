@@ -1,6 +1,6 @@
 # Litex
 
-![image-20200219093839162](/Users/sylvain/Library/Application Support/typora-user-images/image-20200219093839162.png)
+![LiteX](./Images/LiteX.png)
 
 Litex (prononcer "Lytek") est un outil de conception de FPGA qui peut être utiliser pour créer des processeurs (cores) des "systèmes on ship" (SoC) et des architectures complètes de FPGA.
 
