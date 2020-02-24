@@ -1,6 +1,7 @@
 from migen import *
 from migen.genlib.cdc import MultiReg
 from litex.soc.interconnect.csr import *
+from litex.soc.cores import pwm
 
 # RGB LED ---------------------------------------------------------------------------
 class RGBLed(Module, AutoCSR):
