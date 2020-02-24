@@ -26,7 +26,6 @@ class BaseSoC(SoCCore):
  			cpu_type="picorv32",
 			clk_freq=100e6,
 			integrated_rom_size=0x8000,
-			integrated_sram_size=640*480,
 			integrated_main_ram_size=16*1024)
 
 		# Clock Reset Generation
