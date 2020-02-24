@@ -63,17 +63,17 @@ unsigned char transfer(unsigned char bOut) {
 	    delay(50);
 
 	    // Pull the clock line high
-	    joystick_clk_out_write(1);
+	    joystick_clk_write(1);
 
 		// Shift-in a bit from the MISO line
-	    if (joystick_miso_in_read() == 1)
+	    if (joystick_miso_read() == 1)
 	        bIn |= bit;
 	        
 	    // Delay for at least the peer's hold time
 	    delay(50);
 
 	    // Pull the clock line low
-	    joystick_clk_out_write(0);
+	    joystick_clk_write(0);
 	}
 	return bIn;
 }
