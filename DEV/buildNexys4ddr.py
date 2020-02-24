@@ -11,8 +11,6 @@ from litex.soc.integration.builder import *
 from litex.soc.interconnect.csr import *
 
 from litex.soc.cores import gpio
-from litex.soc.cores import pwm
-from litex.soc.cores import spi
 from module import rgbled
 from module import spijoystick
 from module import sevensegment
