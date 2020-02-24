@@ -9,7 +9,8 @@ from litex.soc.interconnect.csr import *
 class SpiJoystick(Module,AutoCSR):
 	def __init__(self, pads):
 	# Clock generation -------------------------------------------------------------------------
-		self.submodules.clk = gpio.GPIOOut(pads.clk)
+		self._clk = CSRStorage()
+		self.comb += pads.clk.eq(self._clk.storage)
 	# Chip Select generation -------------------------------------------------------------------
 		self._cs = CSRStorage(reset=1)
 		self.comb += pads.cs_n.eq(self._cs.storage)
@@ -17,4 +18,5 @@ class SpiJoystick(Module,AutoCSR):
 		self._mosi = CSRStorage()
 		self.comb += pads.mosi.eq(self._mosi.storage)
 	# Master In Slave Out (MISO) capture -------------------------------------------------------
-		self.submodules.miso = gpio.GPIOIn(pads.miso)
+		self._miso = CSRStatus()
+		self.comb += self._miso.status.eq(pads.miso)
