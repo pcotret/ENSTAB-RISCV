@@ -13,32 +13,11 @@ from litex.soc.interconnect.csr import *
 from litex.soc.cores import gpio
 from litex.soc.cores import pwm
 from litex.soc.cores import spi
+from module import rgbled
+from module import spijoystick
 from module import sevensegment
 from module import vgacontroller
-from module import rgbLed
-from module import spijoystick
 
-
-"""
-class RGBLed(Module, AutoCSR):
-    def __init__(self, pads):
-        self.submodules.r = pwm.PWM(pads.r)
-        self.submodules.g = pwm.PWM(pads.g)
-        self.submodules.b = pwm.PWM(pads.b)
-
-class SpiJoystick(Module,AutoCSR):
-	def __init__(self, pads):
-	# Clock generation -------------------------------------------------------------------------
-		self.submodules.clk = gpio.GPIOOut(pads.clk)
-	# Chip Select generation -------------------------------------------------------------------
-		self._cs = CSRStorage(reset=1)
-		self.comb += pads.cs_n.eq(self._cs.storage)
-	# Master Out Slave In (MOSI) generation ----------------------------------------------------
-		self._mosi = CSRStorage()
-		self.comb += pads.mosi.eq(self._mosi.storage)
-	# Master In Slave Out (MISO) capture -------------------------------------------------------
-		self.submodules.miso = gpio.GPIOIn(pads.miso)
-"""
 # BaseSoC ------------------------------------------------------------------------------------------
 
 class BaseSoC(SoCCore):
@@ -72,10 +51,10 @@ class BaseSoC(SoCCore):
 		
 		# RGB leds
 		SoCCore.add_csr(self,"led16")
-		self.submodules.led16 = RGBLed(platform.request("led",16))
+		self.submodules.led16 = rgbled.RGBLed(platform.request("led",16))
 		
 		SoCCore.add_csr(self,"led17")
-		self.submodules.led17 = RGBLed(platform.request("led",17))
+		self.submodules.led17 = rgbled.RGBLed(platform.request("led",17))
 		
 		# 7segments Display
 		SoCCore.add_csr(self,"display")
@@ -85,7 +64,7 @@ class BaseSoC(SoCCore):
 		
 		# Joystick SPI
 		SoCCore.add_csr(self,"joystick")
-		self.submodules.joystick = SpiJoystick(platform.request("joystick"))
+		self.submodules.joystick = spijoystick.SpiJoystick(platform.request("joystick"))
 		
 		# VGA
 		SoCCore.add_csr(self,"vga_cntrl")
