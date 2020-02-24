@@ -18,17 +18,17 @@ class VGAcontroller(Module, AutoCSR):
         h_max = 800
         h_count = Signal(max = h_max)
         
-    v_rez = 480
+        v_rez = 480
         v_startsync = 480 + 10
         v_endsync = v_startsync + 2
         v_max = 525
         v_count = Signal(max = v_max)
     
-    pxl_freq = 25e6 # pixel counter frequency 25MHz
+        pxl_freq = 25e6 # pixel counter frequency 25MHz
         pxl_tick_count = Signal(max = int(100e6/pxl_freq))
         pxl_tick = Signal()
         
-    active = Signal()
+        active = Signal()
         
         memory_width = len(r_out)+len(g_out)+len(b_out)
         mem = Memory(memory_width, h_rez*v_rez)
@@ -39,7 +39,7 @@ class VGAcontroller(Module, AutoCSR):
         self.specials += p_r, p_w
     
         # CSR -----------------------------------------------------------------------------
-    self._mem_adr = CSRStorage(len(p_w.adr))
+        self._mem_adr = CSRStorage(len(p_w.adr))
         self._mem_we = CSRStorage(len(p_w.we))
         self._mem_data_w = CSRStorage(memory_width)
         self._mem_data_r = CSRStatus(memory_width)
