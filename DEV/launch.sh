@@ -3,7 +3,7 @@
 ./load.py
 echo 'Load done'
 echo '================================'
-cd Firmware
+cd firmware
 make all
 make clean
 echo 'make done'
