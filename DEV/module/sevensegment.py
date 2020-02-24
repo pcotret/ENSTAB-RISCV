@@ -12,7 +12,7 @@ class SevenSegment(Module, AutoCSR):
         nb_dig = len(digit_out)
         dgt_count = Signal(max = nb_dig)
     
-    refresh_period = 16*10**(-3)  # refresh of 16ms (from datasheet)
+        refresh_period = 16*10**(-3)  # refresh of 16ms (from datasheet)
         digit_period = refresh_period/nb_dig # period for 1 digit
         
         dgt_tick = Signal()
@@ -22,7 +22,7 @@ class SevenSegment(Module, AutoCSR):
         
     # CSR -----------------------------------------------------------------------------
     
-    self._dig_0 = CSRStorage(8)
+        self._dig_0 = CSRStorage(8)
         self._dig_1 = CSRStorage(8)
         self._dig_2 = CSRStorage(8)
         self._dig_3 = CSRStorage(8)
