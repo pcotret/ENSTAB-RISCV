@@ -10,6 +10,12 @@ Wikipédia: https://fr.wikipedia.org/wiki/RISC-V
 
 Starter guide: https://risc-v-getting-started-guide.readthedocs.io/en/latest/
 
+
+
+#### PicoRV32:
+
+https://github.com/cliffordwolf/picorv32
+
 #### Migen:
 
 Migen site officiel: https://m-labs.hk/migen/manual/introduction.html

@@ -1,4 +1,3 @@
-
 from migen import *
 from migen.genlib.cdc import MultiReg
 
@@ -12,154 +11,87 @@ class VGAcontroller(Module, AutoCSR):
     Provides a video controller circuit to drive the sync and color signals with the correct timing
     in order to produce a working display system.
     """
-    def __init__(self, hs, vs, r_out, g_out, b_out, sram):
+    def __init__(self, hs, vs, r_out, g_out, b_out):
         h_rez = 640
         h_startsync = 640 + 16
-        h_endsync = 640 + 16 + 96
+        h_endsync = h_startsync + 96
         h_max = 800
+        h_count = Signal(max = h_max)
         
-        v_rez = 480
+    v_rez = 480
         v_startsync = 480 + 10
-        v_endsync = 480 + 10 + 2
+        v_endsync = v_startsync + 2
         v_max = 525
-        
-        pxl_tick_count = Signal(2)
+        v_count = Signal(max = v_max)
+    
+    pxl_freq = 25e6 # pixel counter frequency 25MHz
+        pxl_tick_count = Signal(max = int(100e6/pxl_freq))
         pxl_tick = Signal()
         
-        self.active = Signal()
+    active = Signal()
         
-        self.h_count = Signal(10)
-        self.v_count = Signal(10)
+        memory_width = len(r_out)+len(g_out)+len(b_out)
+        mem = Memory(memory_width, h_rez*v_rez)
+        self.specials += mem
         
-        """
-        vram_data_width = 4 # color bits per pixel 2^6 > 3*12bits
-        vram_depth = h_rez * v_rez
-        
-        mem = Memory(vram_data_width, vram_depth)
-        port = mem.get_port(write_capable = True, has_re=True)
-        """
-        # # #
-        self._writeenable = CSRStorage()
-        self._adr = CSRStorage(sram.bus.adr_width)
-        self._data_write = CSRStorage(sram.bus.data_width)
+        p_r = mem.get_port()
+        p_w = mem.get_port(write_capable=True)
+        self.specials += p_r, p_w
+    
+        # CSR -----------------------------------------------------------------------------
+    self._mem_adr = CSRStorage(len(p_w.adr))
+        self._mem_we = CSRStorage(len(p_w.we))
+        self._mem_data_w = CSRStorage(memory_width)
+        self._mem_data_r = CSRStatus(memory_width)
         
         self.comb += [
-            If(self._writeenable.storage,
-               sram.bus.adr.eq(self._adr.storage),
-               sram.bus.dat_w.eq(self._data_write.storage),
-               sram.bus.sel.eq(2 ** len(sram.bus.sel) - 1),
-               sram.bus.we.eq(1)
-            )
+            p_w.adr.eq(self._mem_adr.storage),
+            p_w.we.eq(self._mem_we.storage),
+            self._mem_data_r.status.eq(p_w.dat_r),
+            p_w.dat_w.eq(self._mem_data_w.storage)
         ]
-
-        self.comb += [
-            If(sram.bus.ack == 0,
-               sram.bus.cyc.eq(1),
-               sram.bus.stb.eq(1)
-            ).Else(sram.bus.cyc.eq(0),
-               sram.bus.stb.eq(0)
-            )
-        ]
-        
-        
-        """
-        self._red = CSRStorage(4)
-        self._green = CSRStorage(4)
-        self._blue = CSRStorage(4)
-        self._hpos = CSRStatus(len(self.h_count))
-        self._vpos = CSRStatus(len(self.v_count))
-        self.specials += MultiReg(self.h_count, self._hpos.status)
-        self.specials += MultiReg(self.v_count, self._vpos.status)
-        
-        self._memadr = CSRStorage(len(port.adr))
-        self._memwe = CSRStorage()
-        self._memdatw = CSRStorage(vram_data_width)
-        self._memdatr = CSRStatus(vram_data_width)
-        
-        self.comb += [
-            If(port.we,
-                port.adr.eq(self._memadr.storage)
-            ).Else(
-                port.adr.eq(self.v_count*h_rez+self.h_count)
-            ),
-            port.we.eq(self._memwe.storage),
-            port.dat_w.eq(self._memdatw.storage),
-            port.re.eq(1),
-            
-            self._memdatr.status.eq(port.dat_r)
-            ]
-        
-        """
+    
         # # #
         
         self.sync += [
-        	# Pxl clock generation
-	        If(pxl_tick_count >= (3),
-	            pxl_tick_count.eq(0),
-	            pxl_tick.eq(1)
-	        ).Else(
-	            pxl_tick_count.eq(pxl_tick_count + 1),
-	            pxl_tick.eq(0)
+        # Pxl clock generation
+        If(pxl_tick_count >= (3),
+            pxl_tick_count.eq(0),
+            pxl_tick.eq(1)
+        ).Else(
+            pxl_tick_count.eq(pxl_tick_count + 1),
+            pxl_tick.eq(0)
             ),
-	        If(pxl_tick,
-	            # counters
-			    If(self.h_count >= h_max -1,
-			        self.h_count.eq(0),
-			        If(self.v_count >= v_max -1,
-			            self.v_count.eq(0)
-			        ).Else(
-			            self.v_count.eq(self.v_count+1)
-			        )
-			    ).Else(
-			        self.h_count.eq(self.h_count+1)
-			    ),
-			    
-			    # h sync
-			    If(self.h_count > h_startsync,
-			        If(self.h_count <= h_endsync,
-			            hs.eq(0)
-			        ).Else(
-			            hs.eq(1)
-			        )
-			    ).Else(
-			        hs.eq(1)
-			    ),
-			    
-			    # v sync
-			    If(self.v_count > v_startsync,
-			        If(self.v_count <= v_endsync,
-			            vs.eq(0)
-			        ).Else(
-			            vs.eq(1)
-			        )
-			    ).Else(
-			        vs.eq(1)
-			    ),
-			    
-			    #display sync
-			    If(self.v_count >= v_rez,
-			        self.active.eq(0)
-			    ).Else(
-			        If(self.h_count >= h_rez,
-			            self.active.eq(0)
-			        ).Else(
-			            self.active.eq(1)
-			        )
-			    ),
-			    
-			    If(~self._writeenable.storage,
-                    sram.bus.adr.eq(self.v_count * h_rez + self.h_count),
-                    sram.bus.we.eq(0)
-                ),
-			    
-			    If(self.active,
-			    	r_out.eq(sram.bus.dat_r),#self._red.storage),
-		        	g_out.eq(sram.bus.dat_r),#self._green.storage),
-		        	b_out.eq(sram.bus.dat_r)#self._blue.storage)
-			    ).Else(
-			        r_out.eq(0),
-			        g_out.eq(0),
-			        b_out.eq(0)
-			    )
-	        )
+        
+        # Horiontal and vertical counters
+        If(pxl_tick,
+            If(h_count >= h_max -1,
+            h_count.eq(0),
+            If(v_count >= v_max -1,
+                v_count.eq(0)
+            ).Else(
+            v_count.eq(v_count+1)
+            )
+        ).Else(
+            h_count.eq(h_count+1)
+        )
+        ),
+        
+        # Adress read sync
+        p_r.adr.eq(v_count*h_rez+h_count)
+        ]
+
+        self.comb += [
+            # h sync
+        hs.eq((h_count >= h_startsync) & (h_count < h_endsync)),
+        # v sync
+        vs.eq((v_count >= v_startsync) & (v_count < v_endsync)),
+        # display sync
+        active.eq((h_count < h_rez) & (v_count < v_rez)),
+        # red out
+        r_out.eq(active * p_r.dat_r[0:4]),
+        # green out
+        g_out.eq(active * p_r.dat_r[4:8]),
+        # blue out
+        b_out.eq(active * p_r.dat_r[8:12])
         ]

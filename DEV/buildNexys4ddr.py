@@ -17,7 +17,11 @@ from litex.soc.cores import pwm
 from litex.soc.cores import spi
 from module import sevensegment
 from module import vgacontroller
+from module import rgbLed
+from module import spijoystick
 
+
+"""
 class RGBLed(Module, AutoCSR):
     def __init__(self, pads):
         self.submodules.r = pwm.PWM(pads.r)
@@ -36,7 +40,7 @@ class SpiJoystick(Module,AutoCSR):
 		self.comb += pads.mosi.eq(self._mosi.storage)
 	# Master In Slave Out (MISO) capture -------------------------------------------------------
 		self.submodules.miso = gpio.GPIOIn(pads.miso)
-
+"""
 # BaseSoC ------------------------------------------------------------------------------------------
 
 class BaseSoC(SoCCore):
@@ -90,7 +94,7 @@ class BaseSoC(SoCCore):
 		vga_red = Cat(*[platform.request("vga_red", i) for i in range(4)])
 		vga_green = Cat(*[platform.request("vga_green", i) for i in range(4)])
 		vga_blue = Cat(*[platform.request("vga_blue", i) for i in range(4)])
-		self.submodules.vga_cntrl = vgacontroller.VGAcontroller(platform.request("hsync"),platform.request("vsync"), vga_red, vga_green, vga_blue, self.sram)
+		self.submodules.vga_cntrl = vgacontroller.VGAcontroller(platform.request("hsync"),platform.request("vsync"), vga_red, vga_green, vga_blue)
 
 # Build --------------------------------------------------------------------------------------------
 if __name__ == "__main__":

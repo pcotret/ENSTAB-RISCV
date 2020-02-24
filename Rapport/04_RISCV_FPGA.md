@@ -1,10 +1,18 @@
 
 
-# FPGA
+# NEXYS4DDR  et PICORV32
 
+La carte mise à diposition par l'école pour ce projet est une Nexys4DDR équipée d'un FPGA de chez Xilinx, dont les liens vers la documentation et la description sont listés ci-après. Sachant cela et après avoir analyser les différents projets RiscV nous avons opté pour l'implémentation d'un processeur PicoRV32 car ce processeur est bien documenté mais surtout, il fait parti des COREs diponible sur le Git de Litex.
 
+Mis à part l'installation des drivers de vivado (voir en bas de page), indispensable pour s'interfacer avec la carte, le reste de l'implémentation sera open-source.
 
-## XILINX
+#### RISCV_PICORV32:
+
+lien vers le github :https://github.com/cliffordwolf/picorv32 
+
+et l'implémentation de Litex: https://github.com/enjoy-digital/litex/tree/master/litex/soc/cores/cpu/picorv32
+
+#### FPGA:
 
 Le FPGA utilisé pour ce projet est un Artix-7 de fourniture Xilinx:
 
@@ -16,7 +24,7 @@ voici ses caractéristiques principales:
 
 
 
-## DIGILENT
+#### DIGILENT:
 
 la carte sur lequel est implémenté ce FPGA est une NEXYS 4 DDR de fourniture DIGILENT, voici le lien vers sa page de documentation générale:
 
