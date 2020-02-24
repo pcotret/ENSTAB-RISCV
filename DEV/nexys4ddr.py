@@ -1,6 +1,3 @@
-# This file is Copyright (c) 2018-2019 Florent Kermarrec <florent@enjoy-digital.fr>
-# License: BSD
-
 from litex.build.generic_platform import *
 from litex.build.xilinx import XilinxPlatform, VivadoProgrammer
 
@@ -76,6 +73,7 @@ _io = [
     ("display_segment", 6, Pins("L18"), IOStandard("LVCMOS33")),
     ("display_segment", 7, Pins("H15"), IOStandard("LVCMOS33")),
     
+    # Joystick on JB
     ("joystick", 0,
     	Subsignal("clk", Pins("H14")),
     	Subsignal("cs_n", Pins("D14")),
@@ -98,7 +96,7 @@ _io = [
     ("hsync", 0, Pins("B11"), IOStandard("LVCMOS33")),
     ("vsync", 0, Pins("B12"), IOStandard("LVCMOS33")),
     
-	("cpu_reset", 0, Pins("C12"), IOStandard("LVCMOS33")),
+    ("cpu_reset", 0, Pins("C12"), IOStandard("LVCMOS33")),
     
     ("clk100", 0, Pins("E3"), IOStandard("LVCMOS33")),
 
