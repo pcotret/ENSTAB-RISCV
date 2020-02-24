@@ -90,7 +90,7 @@ class BaseSoC(SoCCore):
 		vga_red = Cat(*[platform.request("vga_red", i) for i in range(4)])
 		vga_green = Cat(*[platform.request("vga_green", i) for i in range(4)])
 		vga_blue = Cat(*[platform.request("vga_blue", i) for i in range(4)])
-		self.submodules.vga_cntrl = vgacontroller.VGAcontroller(platform.request("hsync"),platform.request("vsync"), vga_red, vga_green, vga_blue, self.sram)
+		self.submodules.vga_cntrl = vgacontroller.VGAcontroller(platform.request("hsync"),platform.request("vsync"), vga_red, vga_green, vga_blue)
 
 # Build --------------------------------------------------------------------------------------------
 if __name__ == "__main__":
