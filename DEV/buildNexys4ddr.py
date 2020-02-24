@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-import math
-
 from migen import *
 from migen.genlib.io import CRG
 from migen.genlib.cdc import MultiReg
