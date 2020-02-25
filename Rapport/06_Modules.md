@@ -18,7 +18,7 @@ Le module SoCCore tel que initialement proposé par Litex ressemble à ceci:
 
 Après avoir installé Litex, le fichier décrivant ce module est disponible ici: "./litex/soc/integration/soc_core.py"
 
-Lors de la génération du build, nous l'instancierons en précisants les paramètres souhaités notamment le CPU de type PicoRV32. Nous verrons cela à l'étape suivante.
+Lors de la génération du build, nous l'instancierons en précisant les paramètres souhaités notamment le CPU de type PicoRV32. Nous verrons cela à l'étape suivante.
 
 
 
@@ -46,7 +46,7 @@ class GPIOOut(Module, AutoCSR):
 
 ### LEDs RGB:
 
-La commande des LEDs RGB est constituée de trois canaux (rouge, le vert et le bleu). Nous avons donc créé un module regroupant ces trois canaux. 
+La commande des LEDs RGB est constituée de trois canaux (rouge, vert et bleu). Nous avons donc créé un module regroupant ces trois canaux. 
 
 ![RGBLed](./Images/RGBLed.png)
 
@@ -199,13 +199,13 @@ class SpiJoystick(Module,AutoCSR):
 
 
 
-### VGA CONTROLER:
+### VGA CONTROLLER:
 
 Comme pour les autres modules, nous nous sommes appuyés sur le descriptif de la NEXYS4DDR: https://reference.digilentinc.com/reference/programmable-logic/nexys-4-ddr/reference-manual pour comprendre et implémenter le "display controler block", et en particulier les temps en référence pour définir la synchro verticale et horizontale pour un affichage en 640*480pixs:
 
-![Display](/Users/sylvain/Desktop/Projet/RISCV/RISCV/Rapport/Images/Display.png)
+![Display](./Images/Display.png)
 
-Il à également été nécéssaire de créer une B-RAM afin d'avoir un buffer entre notre processeur et le VGA controler en lui même. Pour ce faire nous avons donc utilisé la fonction "mem = Memory(memory_width, h_rez*v_rez)" de Migen.
+Il a également été nécéssaire de créer une B-RAM afin d'avoir un buffer entre notre processeur et le VGA controler en lui même. Pour ce faire nous avons donc utilisé la fonction "mem = Memory(memory_width, h_rez*v_rez)" de Migen.
 
 Voici l'architecture de notre module:
 
