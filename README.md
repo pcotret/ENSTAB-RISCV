@@ -23,21 +23,13 @@
 ```
 
 # **Etapes:**
-
-Etape N°1: Analyse préliminaire:
-
-https://github.com/SylvainEnsta/RISCV/blob/master/Rapport/Etape1_Analyse.md
-
-Etape N°2: Installation du processeur PICORV32 sur FPGA NEXYS 4 DDR:
-
-https://github.com/SylvainEnsta/RISCV/tree/master/DEV
+- Etape N°1: Analyse préliminaire: [Etape1_Analyse.md](./Rapport/Etape1_Analyse.md]
+- Etape N°2: Installation du processeur PICORV32 sur FPGA NEXYS 4 DDR: [DEV/README.md](./DEV/README.md)
 
 **Liens utiles:**
-
-Migen: http://blog.lambdaconcept.com/doku.php?id=migen:tutorial
-
-Litex: https://github.com/enjoy-digital/litex
-
-NEXYS DDR4 Manual: https://reference.digilentinc.com/reference/programmable-logic/nexys-4-ddr/reference-manual
-
-PmodJSTK2 Manual: https://reference.digilentinc.com/_media/reference/pmod/pmodjstk2/pmodjstk2_rm.pdf
+- Migen: http://blog.lambdaconcept.com/doku.php?id=migen:tutorial
+- Litex: https://github.com/enjoy-digital/litex
+- NEXYS DDR4 Manual: https://reference.digilentinc.com/reference/programmable-logic/nexys-4-ddr/reference-manual
+- ADEPT utilities: https://reference.digilentinc.com/reference/software/adept/start?redirect=1#software_downloads
+(installez les *runtime utilities*, notamment pour avoir la commande `djtgcfg`
+- PmodJSTK2 Manual: https://reference.digilentinc.com/_media/reference/pmod/pmodjstk2/pmodjstk2_rm.pdf
