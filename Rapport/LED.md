@@ -1,8 +1,22 @@
-# LED
+# Les ports GPIO
+
+
 
 #### Attribution des entrées sorties physiques :
 
-Le mappage des E/S est réalisé dans le fichier Nexys4ddr.py:
+
+
+./DEV/litex/litex/soc/cores/gpio.py
+
+
+
+
+
+
+
+
+
+Le mappage des 15 leds est réalisé dans le fichier Nexys4ddr.py:
 
 ```python
  ("user_led",  0, Pins("H17"), IOStandard("LVCMOS33")),
