@@ -6,7 +6,9 @@ Voici le fichier de Litex d'origine:
 
 https://github.com/enjoy-digital/litex/blob/master/litex/boards/platforms/nexys4ddr.py
 
-Nous avons modifié ce fichier pour principalement prendre en compte l'afficheur 7 segments, le joystick et la sortie VGA:
+Nous avons modifié ce fichier pour principalement prendre en compte l'afficheur 7 segments, le joystick, les LED RGB et la sortie VGA.
+
+A noter que le joystick est implémenter sur le port PMOD 'JB' pin 1 à 6 (cf: https://reference.digilentinc.com/reference/programmable-logic/nexys-4-ddr/reference-manual)
 
 ```python
 from litex.build.generic_platform import *

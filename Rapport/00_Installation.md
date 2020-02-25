@@ -2,17 +2,19 @@
 
 # Installation:
 
-Etape 0*: s'assurer d'avoir Python 3.5+ et l'outils de développement FPGA du vendeur (vivado). Ainsi que les drivers de la carte Nexys4-DDR.
+*Etape 0*: s'assurer d'avoir Python 3.5+ et les outils de développement FPGA du vendeur (Vivado). Ainsi que les drivers de la carte Nexys4-DDR.
 
-*Etape 1*: installation de LiteX et de ses dépendances (y compris Migen)
+*Etape 1*: installation de LiteX et de ses dépendances
 
 ```bash
 ./setup.py init install --user
 ```
 
-Nota: définir les fichiers.py comme executables (click droit / properties/ Execute)
+Nota: définir les fichiers.py comme executables :
 
-
+```bash
+chmod +x *.py
+```
 
 Etape 2*: chemin vers le cross-compilateur RISC-V
 
