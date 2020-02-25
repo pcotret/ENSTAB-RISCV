@@ -34,7 +34,7 @@ Le manuel de référence est diponible ici: https://reference.digilentinc.com/re
 
 
 
-![NEXYS4DDR](/Users/sylvain/Desktop/Projet/RISCV/RISCV/Rapport/Images/NEXYS4DDR.png)
+![NEXYS4DDR](./Images/NEXYS4DDR.png)
 
 ## Key Features
 
@@ -52,7 +52,7 @@ Le manuel de référence est diponible ici: https://reference.digilentinc.com/re
 
 ## VIVADO
 
-Vivado est l'outil de développement mis à disposition par Xilinx, même si nous ne l'utilisons pas directement, Litec va en utiliser les composants pour builder notre architecture et ainsi générer le bitstream.
+Vivado est l'outil de développement mis à disposition par Xilinx, même si nous ne l'utilisons pas directement, Litex va en utiliser les composants pour builder notre architecture et ainsi générer le bitstream.
 
 L'installation de Vivado ainsi que des drivers pour la carte  NEXYS 4 DDR est donc nécéssaire:
 
