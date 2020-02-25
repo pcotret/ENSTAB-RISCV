@@ -89,9 +89,9 @@ class VGAcontroller(Module, AutoCSR):
         # display sync
         active.eq((h_count < h_rez) & (v_count < v_rez)),
         # red out
-        r_out.eq(active * p_r.dat_r[0:4]),
+        r_out.eq(active * p_r.dat_r[8:12]),
         # green out
         g_out.eq(active * p_r.dat_r[4:8]),
         # blue out
-        b_out.eq(active * p_r.dat_r[8:12])
+        b_out.eq(active * p_r.dat_r[0:4])
         ]
