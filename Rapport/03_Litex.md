@@ -4,11 +4,11 @@
 
 Litex (prononcer "Lytek") est un outil de conception de FPGA qui peut être utiliser pour créer des processeurs (cores) des "systèmes on ship" (SoC) et des architectures complètes de FPGA.
 
-Voici les liens vers le site du dévelloppeur (F Kermarrec)
+Voici les liens vers le site du développeur (F Kermarrec)
 
 https://github.com/enjoy-digital/litex
 
-Litex est un excellent complément à Migen, également disponible sous la forme de bibliothèques Python, Litex va utiliser la syntaxe Migen pour offrir un ensemble de sous-modules pour faciliter le dévelloppement des architectures FPGA.
+Litex est un excellent complément à Migen, également disponible sous la forme de bibliothèques Python, Litex va utiliser la syntaxe Migen pour offrir un ensemble de sous-modules pour faciliter le développement des architectures FPGA.
 
 Voici un extrait de la présentation de Litex sur son Github:
 
