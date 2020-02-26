@@ -3,7 +3,9 @@
 
 ![main](./Images/main.png)
 
-![snake](./Images/snake.png)
+![snakediagram_1](./Images/snakediagram_1.png)
+
+![snakediagram_2](./Images/snakediagram_2.png)
 
 
 
