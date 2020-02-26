@@ -41,13 +41,13 @@ Ce dossier contient tous les fichiers/dossiers nécéssaires  à l'implémentati
 
 | Nom               | Description                                                  |
 | ----------------- | ------------------------------------------------------------ |
-| README.md         | Les étapes d'installation                                    |
-| setup.py          | Télécharger et installer les modules nécéssaires             |
-| nexys4ddr.py      | Décrire sa plateforme                                        |
-| buildNexys4ddr.py | Réaliser le build                                            |
-| load.py           | Charger le Bitstream                                         |
-| launch.sh         | Lancer le load et implémenter le firmware compilé            |
-| firmware          | Dossier incluant les fichiers en langage C nécéssaire au firmware |
+| README.md         | Les étapes d'installation.                                    |
+| setup.py          | Télécharger et installer les modules nécéssaires.             |
+| nexys4ddr.py      | Décrire sa plateforme.                                        |
+| buildNexys4ddr.py | Réaliser le build.                                            |
+| load.py           | Charger le Bitstream.                                         |
+| launch.sh         | Lancer le load et implémenter le firmware compilé.            |
+| firmware          | Dossier incluant les fichiers en langage C nécéssaires au firmware. |
 | module            | Dossier incluant nos modules.                                |
 
 
