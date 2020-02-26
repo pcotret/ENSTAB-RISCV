@@ -1,16 +1,16 @@
-# Litex
+# LiteX
 
 ![LiteX](./Images/LiteX.png)
 
-Litex (prononcer "Lytek") est un outil de conception de FPGA qui peut être utiliser pour créer des processeurs (cores) des "systèmes on ship" (SoC) et des architectures complètes de FPGA.
+LiteX (prononcer "Lytek") est un outil de conception de FPGA qui peut être utiliser pour créer des processeurs (cores) des "systèmes on ship" (SoC) et des architectures complètes de FPGA.
 
 Voici les liens vers le site du développeur (F Kermarrec)
 
 https://github.com/enjoy-digital/litex
 
-Litex est un excellent complément à Migen, également disponible sous la forme de bibliothèques Python, Litex va utiliser la syntaxe Migen pour offrir un ensemble de sous-modules pour faciliter le développement des architectures FPGA.
+LiteX est un excellent complément à Migen, également disponible sous la forme de bibliothèques Python, LiteX va utiliser la syntaxe Migen pour offrir un ensemble de sous-modules pour faciliter le développement des architectures FPGA.
 
-Voici un extrait de la présentation de Litex sur son Github:
+Voici un extrait de la présentation de LiteX sur son Github:
 
 ```
                         +---------------+
@@ -44,7 +44,7 @@ Voici un extrait de la présentation de Litex sur son Github:
 
 
 
-Dans notre application, trois choses essentielles sont apportées par Litex:
+Dans notre application, trois choses essentielles sont apportées par LiteX:
 
 - tout d'abord "litex.boards" va nous fournir la base pour notre NEXYS 4 DDR en effet, celle-ci est déjà presque entièrement implémenté et directement disponible dans la bibliothèque.
 - Egalement Litex.soc va nous fournir le "PICO RV32", celui-ci étant un des processeurs RISC V déjà présents dans Litex.
