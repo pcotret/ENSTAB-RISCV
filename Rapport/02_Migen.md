@@ -8,7 +8,7 @@ https://m-labs.hk/migen/manual/introduction.html
 
 https://github.com/m-labs/migen
 
-Actuellement lorsque vous souhaitez décrire une architecture FPGA, vous utilisez généralement deux languages: le VHDL ou le Verilog. Migen apporte une nouvelle façon de décrire vos architectures en utilisant le langage Python et de le convertir directement par une simple fonction print en VHDL ou en Vérilog.
+Actuellement lorsque vous souhaitez décrire une architecture FPGA, vous utilisez généralement deux langages: le VHDL ou le Verilog. Migen apporte une nouvelle façon de décrire vos architectures en utilisant le langage Python et de le convertir directement par une simple fonction print en VHDL ou en Vérilog.
 
 Nous n'allons pas reprendre ici l'ensemble de la syntaxe Migen, car elle est bien documentée sur le site du développeur, ainsi que sur d'autres sites dont voici les liens:
 
