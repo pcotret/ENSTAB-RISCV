@@ -2,7 +2,7 @@
 
 # NEXYS4DDR  et PICORV32
 
-La carte mise à diposition par l'école pour ce projet est une Nexys4DDR équipée d'un FPGA de chez Xilinx, dont les liens vers la documentation et la description sont listés ci-après. Sachant cela et après avoir analyser les différents projets RiscV nous avons opté pour l'implémentation d'un processeur PicoRV32 car ce processeur est bien documenté mais surtout, il fait parti des COREs diponible sur le Git de Litex.
+La carte mise à disposition par l'école pour ce projet est une Nexys4DDR équipée d'un FPGA de chez Xilinx, dont les liens vers la documentation et la description sont listés ci-après. Sachant cela et après avoir analyser les différents projets RiscV nous avons opté pour l'implémentation d'un processeur PicoRV32 car ce processeur est bien documenté mais surtout, il fait parti des COREs disponible sur le Git de Litex.
 
 Mis à part l'installation des drivers de vivado (voir en bas de page), indispensable pour s'interfacer avec la carte, le reste de l'implémentation sera open-source. A noter que la suite Vivado est déjà disponible sur les ordinateurs de l'école.
 
@@ -18,7 +18,7 @@ Le FPGA utilisé pour ce projet est un Artix-7 de fourniture Xilinx:
 
 https://www.xilinx.com/products/silicon-devices/fpga/artix-7.html#productTable
 
-voici ses caractéristiques principales:
+Voici ses caractéristiques principales:
 
 ![XCA100T](./Images/XCA100T.png)
 
