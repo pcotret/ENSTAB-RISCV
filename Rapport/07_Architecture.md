@@ -3,7 +3,7 @@
 Comme nous avons pu le voir précédemment, voici le schéma architecturel du FPGA:
 ![Architecture](./Images/Architecture.png)
 
-Une fois le fonctionnement des modules décris, il faut pouvoir les instancier conformément à l'architecture souhaitée. C'est ce qui est fait dans le fichier "./buildNexys4ddr.py".
+Une fois le fonctionnement des modules décrit, il faut pouvoir les instancier conformément à l'architecture souhaitée. C'est ce qui est fait dans le fichier "./buildNexys4ddr.py".
 
 # 
 Premièrement, nous instancions le module SocCore. Pour cela, nous précisons les paramètres utiles: 
