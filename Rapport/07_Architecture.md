@@ -28,7 +28,7 @@ class BaseSoC(SoCCore):
 
 # 
 Par la suite, nous instancions tous les autres modules et les relions avec les pins correspondants définis dans la plateforme
-Pour expliquer la démarche, prenons l'exemple des LEDs. D'abord, on ajoute un CSR afin de préciser l'ajout d'un sous-module. Ensuite on recherche les pins correspondant aux 16 LEDs dans la plateforme. Petite astuce, on les concatène afin d'obtenir un mot de 16bits. Et enfin, on défini le sous-module ajouté comme étant un module GPIO_Out avec en paramètre le mot de 16bits comprenant les 16 pins des LEDs de la plateforme.
+Pour expliquer la démarche, prenons l'exemple des LEDs. D'abord, on ajoute un CSR afin de préciser l'ajout d'un sous-module. Ensuite on recherche les pins correspondant aux 16 LEDs dans la plateforme. Petite astuce, on les concatène afin d'obtenir un mot de 16bits. Et enfin, on définit le sous-module ajouté comme étant un module GPIO_Out avec en paramètre le mot de 16bits comprenant les 16 pins des LEDs de la plateforme.
 ```python
 	# Leds
 	SoCCore.add_csr(self,"leds")
