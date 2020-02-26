@@ -23,7 +23,7 @@
 ```
 
 # 
-#### Projet éducatif visant à évaluer l'implémentation d'un processeur d'architecture RISC-V sur un FPGA en utilisant les outils de conception Migen et Litex.
+#### Projet éducatif visant à évaluer l'implémentation d'un processeur d'architecture RISC-V sur un FPGA en utilisant les outils de conception Migen et LiteX.
 
 RISC-V (http://riscv.org) est une architecture de processeur basée sur un jeu d'instruction moderne, totalement ouvert et libre de droits. La première étape de ce projet sera d'analyser les différents modèles de processeur disponibles et proposés à la communauté et ayant fait l'objet d'une implémentation sur silicium réussie.
 
