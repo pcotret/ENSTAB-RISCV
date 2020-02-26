@@ -1,12 +1,13 @@
 # Firmware
 
 ### Main
-Une fois le bitstream généré et implémanté dans le FPGA, il devient possible de programmer le processeur.
-Pour ce faire, nous nous sommes inspirés des leçons/tuto mis à disposition par litex (https://github.com/enjoy-digital/fpga_101). Ces tutos proposent un programme principal en C que l'on peut schématiser de la manière suivante:
+Une fois le bitstream généré nous pouvons l'implémanter dans le FPGA via l'executable load.py.
+Il devient ainsi possible de programmer le processeur. Pour ce faire, nous nous sommes inspirés des leçons/tuto mis à disposition par litex (https://github.com/enjoy-digital/fpga_101). Ces tutos proposent un programme principal en C que l'on peut schématiser de la manière suivante:
 
 ![main](./Images/main.png)
 
 Ce main permet de gérer la liaison UART avec un PC ainsi que d'effectuer de simples tests pour gérer les différents entrées/sorties. Ainsi, nous pouvons executer les fonctions via le terminal comme nous pouvons le voir sur la capture suivante :
+
 ![Capture_term](./Images/Capture_term.png)
 
 Nous avons complété ce fichier main afin d'y intégrer le test de l'écran vga. On obtient ainsi la mire suivante:
