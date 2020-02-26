@@ -24,7 +24,7 @@ Lors de la génération du build, nous l'instancierons en précisant les paramè
 
 ### GPIOs (LEDs, switchs, buttons):
 
-Pour interfacer les entrées/sorties basiques tels que les LEDs simples, les switchs et les bouttons, nous utilisons des modules GPIO disponibles dans la bibliothèque de Litex: "./litex/soc/cores/gpio.py":
+Pour interfacer les entrées/sorties basiques tels que les LEDs simples, les switchs et les boutons, nous utilisons des modules GPIO disponibles dans la bibliothèque de Litex: "./litex/soc/cores/gpio.py":
 
 ```python
 # GPIO Input -------------------------------------------------------------------------------
@@ -74,7 +74,7 @@ class RGBLed(Module, AutoCSR):
 
 ### 7 segments:
 
-Ce module permet d'interagir avec les 8 pavés de 7 segments de la NEXYS4DDR. Litex ne proposant aucune definition pour ce type de module, nous l'avons donc réalisé de la façon suivante:
+Ce module permet d'interagir avec les 8 pavés de 7 segments de la NEXYS4DDR. Litex ne proposant aucune définition pour ce type de module, nous l'avons donc réalisé de la façon suivante:
 
 
 
@@ -205,7 +205,7 @@ Comme pour les autres modules, nous nous sommes appuyés sur le descriptif de la
 
 ![Display](./Images/Display.png)
 
-Il a également été nécéssaire de créer une B-RAM afin d'avoir un buffer entre notre processeur et le VGA controler en lui même. Pour ce faire nous avons donc utilisé la fonction "mem = Memory(memory_width, h_rez*v_rez)" de Migen.
+Il a également été nécessaire de créer une B-RAM afin d'avoir un buffer entre notre processeur et le VGA controler en lui même. Pour ce faire nous avons donc utilisé la fonction "mem = Memory(memory_width, h_rez*v_rez)" de Migen.
 
 Voici l'architecture de notre module:
 
