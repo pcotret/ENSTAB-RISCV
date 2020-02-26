@@ -15,7 +15,9 @@ Ce dossier contient tous les fichiers/dossiers nécéssaires  à l'implémentati
 
 
 
-Voici les étapes à suivre pour réaliser l'installation:
+
+
+#### Voici les étapes à suivre pour réaliser l'installation:
 
 Etape 0*: s'assurer d'avoir Python 3.5+ et les outils de développement FPGA du vendeur (Vivado). Ainsi que les drivers de la carte Nexys4-DDR.
 
