@@ -177,5 +177,7 @@ void snake(void) {
 ### Demonstration
 Une fois le programme du snake implémanté dans le FPGA, il ne rest plus qu'à jouer, record à battre 202 !
 
-[![Snake_Nexys4DDR](./Images/Snake_GameOver.png)](https://github.com/SylvainEnsta/RISCV/blob/master/Rapport/Images/Snake_Nexys4DDR.mp4)]
+[![Snake_Nexys4DDR](./Images/Snake_GameOver.png)](https://github.com/SylvainEnsta/RISCV/blob/master/Rapport/Images/Snake_Nexys4DDR.mp4)
+
+(Cliquez sur l'image pour télécharger la vidéo)
 
