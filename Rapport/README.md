@@ -29,15 +29,15 @@ RISC-V (http://riscv.org) est une architecture de processeur basée sur un jeu d
 
 Nous nous intéresserons ensuite aux outils de conception Migen et Litex qui proposent une alternative au langage VHDL et Verilog en offrant un flot de conception entièrement réalisable en python.
 
-Nous tâcherons enfin de réaliser une implémentation via ces outils de conception et de réaliser l'execution d'un programme en langage C sur un FPGA.
+Nous tâcherons enfin de réaliser une implémentation via ces outils de conception et de réaliser l'exécution d'un programme en langage C sur un FPGA.
 
 
 
-Vous trouverez sur ce GitHub les dossiers suivants:
+Vous trouverez sur ce GitHub les dossiers suivants :
 
 ### DEV:
 
-Ce dossier contient tous les fichiers/dossiers nécéssaires  à l'implémentation du processeur sur le FPGA.
+Ce dossier contient tous les fichiers/dossiers nécessaires  à l'implémentation du processeur sur le FPGA.
 
 | Nom               | Description                                                  |
 | ----------------- | ------------------------------------------------------------ |
