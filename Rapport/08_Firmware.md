@@ -7,15 +7,14 @@ Pour ce faire, nous nous sommes inspirés des leçons/tuto mis à disposition pa
 ![main](./Images/main.png)
 
 Ce main permet de gérer la liaison UART avec un PC ainsi que d'effectuer de simples tests pour gérer les différents entrées/sorties. Ainsi, nous pouvons executer les fonctions via le terminal comme nous pouvons le voir sur la capture suivante :
-![capture_term](./Images/capture_term.png)
+![Capture_term](./Images/Capture_term.png)
 
 Nous avons complété ce fichier main afin d'y intégrer le test de l'écran vga. On obtient ainsi la mire suivante:
 ![MireVga](./Images/MireVga.png)
 
 
 ### Snake
-La finalité du projet étant de pouvoir jouer au snake sur un écran relié par vga avec un joystick, nous avons décrit précédemment les modules de gestion de ces périphériques. La dernière étape est donc de coder un algorithme en C execuable par le processeur.
-Voici le schéma de principe de l'algorithme.
+Nous avons décrit précédemment les modules de gestion des périphériques vga et spi. Afin d'évaluer l'implémentation de ces différents modules nous avons choisi de realiset un jeu snake sur un écran relié par vga avec un joystick. Pour ce faire, nous avons coder un algorithme en C execuable par le processeur dont voici le schéma de principe suivi du code C correspondant.
 
 ![snakediagram_1](./Images/snakediagram_1.png)
 ![snakediagram_2](./Images/snakediagram_2.png)
@@ -176,6 +175,6 @@ void snake(void) {
 ```
 
 ### Demonstration
-Une fois le programme du snake implémanté dans le FPGA, il ne rest plus qu'à jouer, record à battre 202
-![Snake_GameOver.png](./Images/Snake_GameOver.png)
-![capture_term](./Images/capture_term.png)
+Une fois le programme du snake implémanté dans le FPGA, il ne rest plus qu'à jouer, record à battre 202 !
+![Snake_GameOver](./Images/Snake_GameOver.png)
+![Snake_Nexys4DDR](./Images/Snake_Nexys4DDR.mp4)
