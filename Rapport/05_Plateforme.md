@@ -1,6 +1,6 @@
 # Nexys4ddr.py
 
-Ce fichier sert de base à la description de la plateforme. Nous nous sommes appuyé sur la version disponible de Litex car il est déjà très complet avec le descriptif de l'ensemble des "basic I/O".
+Ce fichier sert de base à la description de la plateforme. Nous nous sommes appuyés sur la version disponible de Litex car il est déjà très complet avec le descriptif de l'ensemble des "basic I/O".
 
 Voici le fichier de Litex d'origine:
 
