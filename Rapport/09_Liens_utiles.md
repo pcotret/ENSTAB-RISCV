@@ -35,7 +35,7 @@
 #### Litex:
 
 - Github: https://github.com/enjoy-digital/litex
-
+- FPGA lessons/tutorials: https://github.com/litex-hub/fpga_101
 
 #### FPGA:
 
