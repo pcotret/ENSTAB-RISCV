@@ -51,7 +51,7 @@ void snake(void) {
 		sprintf(txt,"%c%c%c%c%c%c%c%c",display_G, display_A, display_M, display_E, 0, display_O, display_N, 0);
 		display(txt);
 
-		// init snake
+		// init serpent
 		sn_x[0] = x_rez/2;
 		sn_y[0] = y_rez/2;
 		taille = 1;
@@ -71,13 +71,14 @@ void snake(void) {
 			joy_x = rtrnValues[0]-128;
 			joy_y = rtrnValues[1]-128;
 	
-			//choix mvt
-			if(85 <= (abs(joy_x)|abs(joy_y))) {
+			//Test joy mvt significatif
+			if((abs(joy_x) >= 85) || (abs(joy_y) >= 85)) {
+				//maj mvt
 				if(abs(joy_x)>=abs(joy_y)) mvt = ((joy_x>0) ? ((mvt==4) ? 4 : 3) : ((mvt==3) ? 3 : 4));
 				else mvt = ((joy_y>0) ? ((mvt==1) ? 1 : 2) : ((mvt==2) ? 2 : 1));
 			}
 		
-			//effacement motif
+			//effacement fin serpent
 			for(y = sn_y[taille-1]-thikness/2; y<sn_y[taille-1]+thikness/2; y++) {
 				for(x=sn_x[taille-1]-thikness/2; x<sn_x[taille-1]+thikness/2; x++){
 					vga_cntrl_mem_we_write(0);
@@ -87,13 +88,13 @@ void snake(void) {
 				}
 			}
 		
-			//decallage serpent
+			//maj corps serpent
 			for(x=taille; x>0; x--){
 				sn_x[x] = sn_x[x-1];
 				sn_y[x] = sn_y[x-1];
 			}
 		
-			//maj tete
+			//maj tete serpent
 			switch(mvt) {
 				case 1: // left //
 					sn_x[0] -= thikness;
