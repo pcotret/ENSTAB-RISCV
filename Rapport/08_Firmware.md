@@ -176,6 +176,6 @@ void snake(void) {
 ```
 
 ### Demonstration
-Une fois le programme du snake implémanté dans le FPGA, il ne rest plus qu'à jouer, record à battre ...
-![capture_term](./Images/capture_term.png)
+Une fois le programme du snake implémanté dans le FPGA, il ne rest plus qu'à jouer, record à battre 202
+![Snake_GameOver.png](./Images/Snake_GameOver.png)
 ![capture_term](./Images/capture_term.png)
