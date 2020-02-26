@@ -3,6 +3,7 @@
 ### Main
 Une fois le bitstream généré et implémanté dans le FPGA, il devient possible de programmer le processeur.
 Pour ce faire, nous nous sommes inspirés des leçons/tuto mis à disposition par litex (https://github.com/enjoy-digital/fpga_101). Ces tutos proposent un programme principal en C que l'on peut schématiser de la manière suivante:
+
 ![main](./Images/main.png)
 
 Ce main permet de gérer la liaison UART avec un PC ainsi que d'effectuer de simples tests pour gérer les différents entrées/sorties. Ainsi, nous pouvons executer les fonctions via le terminal comme nous pouvons le voir sur la capture suivante :
@@ -15,6 +16,7 @@ Nous avons complété ce fichier main afin d'y intégrer le test de l'écran vga
 ### Snake
 La finalité du projet étant de pouvoir jouer au snake sur un écran relié par vga avec un joystick, nous avons décrit précédemment les modules de gestion de ces périphériques. La dernière étape est donc de coder un algorithme en C execuable par le processeur.
 Voici le schéma de principe de l'algorithme.
+
 ![snakediagram_1](./Images/snakediagram_1.png)
 ![snakediagram_2](./Images/snakediagram_2.png)
 
@@ -172,3 +174,8 @@ void snake(void) {
 	}
 }
 ```
+
+### Demonstration
+Une fois le programme du snake implémanté dans le FPGA, il ne rest plus qu'à jouer, record à battre ...
+![capture_term](./Images/capture_term.png)
+![capture_term](./Images/capture_term.png)
