@@ -12,6 +12,6 @@ RISC-V (http://riscv.org) est une architecture de processeur basée sur un jeu d
 
 ## Dépôt
 
-- [DEV](./DEV/README.md) - Ce dossier contient tous les fichiers/dossiers nécessaires  à l'implémentation du processeur sur le FPGA.
-- [Rapport](./Rapport/README.md) - Ce dossier contient tous les fichiers résultant de notre analyse et décrivant étape par étape le processus d'implémentation du processeur sur le FPGA.
+- [DEV](./DEV/) - Ce dossier contient tous les fichiers/dossiers nécessaires  à l'implémentation du processeur sur le FPGA.
+- [Rapport](./Rapport/) - Ce dossier contient tous les fichiers résultant de notre analyse et décrivant étape par étape le processus d'implémentation du processeur sur le FPGA.
 
