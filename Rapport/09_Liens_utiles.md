@@ -1,6 +1,4 @@
-# Liens utiles:
-
-
+# Liens utiles
 
 #### RISC V:
 

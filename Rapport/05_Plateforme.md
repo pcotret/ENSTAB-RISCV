@@ -2,13 +2,11 @@
 
 Ce fichier sert de base à la description de la plateforme. Nous nous sommes appuyés sur la version disponible de Litex car il est déjà très complet avec le descriptif de l'ensemble des "basic I/O".
 
-Voici le fichier de Litex d'origine:
-
-https://github.com/enjoy-digital/litex/blob/master/litex/boards/platforms/nexys4ddr.py
+Voici le fichier de LiteX d'origine : https://github.com/enjoy-digital/litex/blob/master/litex/boards/platforms/nexys4ddr.py
 
 Nous avons modifié ce fichier pour principalement prendre en compte l'afficheur 7 segments, le joystick, les LED RGB et la sortie VGA.
 
-A noter que le joystick est implémenter sur le port PMOD 'JB' pin 1 à 6 (cf: https://reference.digilentinc.com/reference/programmable-logic/nexys-4-ddr/reference-manual)
+A noter que le joystick est implémenter sur le port PMOD 'JB' pin 1 à 6 (cf : https://reference.digilentinc.com/reference/programmable-logic/nexys-4-ddr/reference-manual)
 
 ```python
 from litex.build.generic_platform import *
@@ -178,6 +176,5 @@ class Platform(XilinxPlatform):
 
     def do_finalize(self, fragment):
         XilinxPlatform.do_finalize(self, fragment)
-
 ```
 

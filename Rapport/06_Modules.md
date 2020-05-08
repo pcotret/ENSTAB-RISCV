@@ -1,60 +1,48 @@
-# Description des modules:
+# Description des modules
 
-Voici ci-dessous l'architecture que nous souhaitons implémenter sur notre FPGA. Pour cela nous devons décrire l'ensemble des modules correspondant aux blocs de ce schéma:
-
-
+Voici ci-dessous l'architecture que nous souhaitons implémenter sur notre FPGA. Pour cela nous devons décrire l'ensemble des modules correspondant aux blocs de ce schéma :
 
 ![Architecture](./Images/Architecture.png)
 
+## SoCCore
 
-
-### SoCCore:
-
-Le module SoCCore tel que initialement proposé par Litex ressemble à ceci:
+Le module SoCCore tel que initialement proposé par Litex ressemble à ceci :
 
 
 
 ![SoCCore](./Images/SoCCore.png)
 
-Après avoir installé Litex, le fichier décrivant ce module est disponible ici: "./litex/soc/integration/soc_core.py"
+Après avoir installé LiteX, le fichier décrivant ce module est disponible ici : "./litex/soc/integration/soc_core.py"
 
 Lors de la génération du build, nous l'instancierons en précisant les paramètres souhaités notamment le CPU de type PicoRV32. Nous verrons cela à l'étape suivante.
 
+## GPIOs (LEDs, switchs, buttons)
 
-
-### GPIOs (LEDs, switchs, buttons):
-
-Pour interfacer les entrées/sorties basiques tels que les LEDs simples, les switchs et les boutons, nous utilisons des modules GPIO disponibles dans la bibliothèque de Litex: "./litex/soc/cores/gpio.py":
+Pour interfacer les entrées/sorties basiques tels que les LEDs simples, les switchs et les boutons, nous utilisons des modules GPIO disponibles dans la bibliothèque de LiteX : "./litex/soc/cores/gpio.py":
 
 ```python
 # GPIO Input -------------------------------------------------------------------------------
-
 class GPIOIn(Module, AutoCSR):
     def __init__(self, signal):
         self._in = CSRStatus(len(signal))
         self.specials += MultiReg(signal, self._in.status)
 
 # GPIO Output ------------------------------------------------------------------------------
-
 class GPIOOut(Module, AutoCSR):
     def __init__(self, signal):
         self._out = CSRStorage(len(signal))
         self.comb += signal.eq(self._out.storage)
 ```
 
-
-
-### LEDs RGB:
+## LEDs RGB
 
 La commande des LEDs RGB est constituée de trois canaux (rouge, vert et bleu). Nous avons donc créé un module regroupant ces trois canaux. 
 
 ![RGBLed](./Images/RGBLed.png)
 
-Afin de pouvoir moduler individuellement chacun des canaux, nous avons utilisé le module PWM de Litex: "./litex/soc/cores/pwm.py"
+Afin de pouvoir moduler individuellement chacun des canaux, nous avons utilisé le module PWM de LiteX : "./litex/soc/cores/pwm.py". Le module se pilote via ses trois entrées Enable, Width et Period
 
-Le module se pilote via ses trois entrées Enable, Width et Period
-
-Voici notre module faisant appel aux PWM: "./module/rgbled.py"
+Voici notre module faisant appel aux PWM: [module/rgbled.py](../DEV/module/rgbled.py)
 
 ```python
 from migen import *
@@ -70,19 +58,15 @@ class RGBLed(Module, AutoCSR):
         self.submodules.b = pwm.PWM(pads.b)
 ```
 
+## 7 segments
 
-
-### 7 segments:
-
-Ce module permet d'interagir avec les 8 pavés de 7 segments de la NEXYS4DDR. Litex ne proposant aucune définition pour ce type de module, nous l'avons donc réalisé de la façon suivante:
+Ce module permet d'interagir avec les 8 pavés de 7 segments de la Nexys4DDR. LiteX ne proposant aucune définition pour ce type de module, nous l'avons donc réalisé de la façon suivante :
 
 
 
 ![7segments](./Images/7segments.png)
 
-Ce schéma fonctionnel est décrit via les fonctions de Migen, en particulier par l'usage de self.sync pour synchroniser sur les coups d'horloge de 100Mhz et de self.comb qui permet de définir les liaisons combinatoires.
-
-Ce module est disponible ici:"./module/sevensegment.py"
+Ce schéma fonctionnel est décrit via les fonctions de Migen, en particulier par l'usage de self.sync pour synchroniser sur les coups d'horloge de 100Mhz et de self.comb qui permet de définir les liaisons combinatoires. Ce module est disponible ici : [module/sevensegment.py](../DEV/module/sevensegment.py)
 
 ```python
 from migen import *
@@ -158,19 +142,15 @@ class SevenSegment(Module, AutoCSR):
 
 ```
 
+## Joystick
 
+Le joystick est raccorder à une interface SPI. Sa documentation est disponible ici: PmodJSTK2 Manual: https://reference.digilentinc.com/_media/reference/pmod/pmodjstk2/pmodjstk2_rm.pdf. Etant donné que nous utilisons un processeur, il n'est pas obligatoire de gérer le module de liaison SPI par le FPGA.
 
-### Joystick:
-
-Le joystick est raccorder à une interface SPI. Sa documentation est disponible ici: PmodJSTK2 Manual: https://reference.digilentinc.com/_media/reference/pmod/pmodjstk2/pmodjstk2_rm.pdf
-
-Etant donné que nous utilisons un processeur, il n'est pas obligatoire de gérer le module de liaison SPI par le FPGA.
-
-Nous avons ainsi simplifié son interface en utilisant les GPIO de Litex (comme vu précédemment) et donné la gestion de la liaison SPI à notre processeur au travers du Firmware.
+Nous avons ainsi simplifié son interface en utilisant les GPIO de Litex (comme vu précédemment) et donné la gestion de la liaison SPI à notre processeur au travers du firmware.
 
 ![Joystick](./Images/Joystick.png)
 
-Ce module est disponible ici: "./module/spijoystick.py"
+Ce module est disponible ici : [module/spijoystick.py](../DEV/module/spijoystick.py)
 
 ```python
 from migen import *
@@ -197,11 +177,9 @@ class SpiJoystick(Module,AutoCSR):
 		self.comb += self._miso.status.eq(pads.miso)
 ```
 
+## VGA controller
 
-
-### VGA CONTROLLER:
-
-Comme pour les autres modules, nous nous sommes appuyés sur le descriptif de la NEXYS4DDR: https://reference.digilentinc.com/reference/programmable-logic/nexys-4-ddr/reference-manual pour comprendre et implémenter le "display controler block", et en particulier les temps en référence pour définir la synchro verticale et horizontale pour un affichage en 640*480pixs:
+Comme pour les autres modules, nous nous sommes appuyés sur le descriptif de la Nexys4DDR : https://reference.digilentinc.com/reference/programmable-logic/nexys-4-ddr/reference-manual pour comprendre et implémenter le "display controler block", et en particulier les temps en référence pour définir la synchro verticale et horizontale pour un affichage en 640*480pixels :
 
 ![Display](./Images/Display.png)
 
@@ -213,7 +191,7 @@ Voici l'architecture de notre module:
 
 
 
-Ce module est disponible ici: "./module/vgacontroller.py"
+Ce module est disponible ici : [module/vgacontroller.py](../DEV/module/vgacontroller.py)
 
 ```python
 from migen import *
@@ -313,6 +291,5 @@ class VGAcontroller(Module, AutoCSR):
         # blue out
         b_out.eq(active * p_r.dat_r[8:12])
         ]
-
 ```
 

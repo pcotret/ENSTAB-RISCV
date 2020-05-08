@@ -1,26 +1,22 @@
 # Migen
 
-![migen](./Images/migen.png)
-
-Migen est une bibliothèque Python permettant de manipuler et générer plus facilement des circuits logiques complexes. voici deux lien vers les sites du développeur (S Bourdeauducq):
-
-https://m-labs.hk/migen/manual/introduction.html
-
-https://github.com/m-labs/migen
+> ![migen](./Images/migen.png)
+>
+> Migen est une bibliothèque Python permettant de manipuler et générer plus facilement des circuits logiques complexes. Voici deux lien vers les sites du développeur :
+>
+> - https://m-labs.hk/migen/manual/introduction.html
+> - https://github.com/m-labs/migen
 
 Actuellement lorsque vous souhaitez décrire une architecture FPGA, vous utilisez généralement deux langages: le VHDL ou le Verilog. Migen apporte une nouvelle façon de décrire vos architectures en utilisant le langage Python et de le convertir directement par une simple fonction print en VHDL ou en Vérilog.
 
 Nous n'allons pas reprendre ici l'ensemble de la syntaxe Migen, car elle est bien documentée sur le site du développeur, ainsi que sur d'autres sites dont voici les liens:
 
-- Article en français:
+- [Article en français](https://connect.ed-diamond.com/GNU-Linux-Magazine/GLMF-149/Migen-une-boite-a-outils-en-Python-pour-concevoir-des-circuits-logiques-complexes)
 
-  https://connect.ed-diamond.com/GNU-Linux-Magazine/GLMF-149/Migen-une-boite-a-outils-en-Python-pour-concevoir-des-circuits-logiques-complexes
+- Voici un exemple extrait du site : http://blog.lambdaconcept.com/doku.php?id=migen:tutorial
 
-- Voici un exemple extrait du site:
 
-   http://blog.lambdaconcept.com/doku.php?id=migen:tutorial
-
-Il s'agit de la description d'un afficheur 7 segments réaliser en python utilisant la bibliothèque Migen:
+Il s'agit de la description d'un afficheur 7 segments réaliser en python utilisant la bibliothèque Migen :
 
 ```python
 from migen import *
@@ -47,16 +43,14 @@ example = sevenseg_ctrl()
 print(verilog.convert(example, {example.hexa, example.abcdefg}))
 ```
 
-La fonction print à la fin vous retourne le code Verilog suivant:
+La fonction print à la fin vous retourne le code Verilog suivant :
 
-```python
+```verilog
 /* Machine-generated using Migen */
 module top(
 	output reg [6:0] abcdefg,
 	input [3:0] hexa
 );
- 
- 
  
 // Adding a dummy event (using a dummy signal 'dummy_s') to get the simulator
 // to run the combinatorial process once at the beginning.
@@ -64,7 +58,6 @@ module top(
 reg dummy_s;
 initial dummy_s <= 1'd0;
 // synthesis translate_on
- 
  
 // synthesis translate_off
 reg dummy_d;
