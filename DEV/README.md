@@ -29,7 +29,7 @@ Ce dossier contient tous les fichiers/dossiers nécéssaires  à l'implémentati
 chmod +x *.py
 ./setup.py init install --user
 # Chemin du cross-compilateur
-export PATH=$PATH:$(echo $PWD/riscv64/bin/)
+export PATH=$PATH:$(echo $PWD/riscv64/bin)
 # Synthèse de l'architecture pour la Nexys4-DDR
 ./buildNexys4ddr.py
 # Lancement du noyau
