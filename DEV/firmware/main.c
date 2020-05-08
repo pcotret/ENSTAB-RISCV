@@ -13,16 +13,6 @@
 #include "PmodJSTK2.h"
 #include "snake.h"
 
-static void busy_wait(unsigned int ds)
-{
-	timer0_en_write(0);
-	timer0_reload_write(0);
-	timer0_load_write(CONFIG_CLOCK_FREQUENCY/10*ds);
-	timer0_en_write(1);
-	timer0_update_value_write(1);
-	while(timer0_value_read()) timer0_update_value_write(1);
-}
-
 static char *readstr(void)
 {
 	char c[2];
@@ -251,19 +241,20 @@ static void rgbled_test(void)
 
 static void joystick_test(void)
 {
-	unsigned short smpX,smpY;
+	//unsigned short smpX,smpY;
 	unsigned char fsButtons=0;
 	unsigned char stdPktValues [5];
 	unsigned char rtrnValues [2];
-	unsigned char x,y;
+	unsigned char x;
+	//unsigned char y;
 	unsigned short i = 1;
 	while((fsButtons&bitJstk)==0) {
 		getCommand(cmdGetPosition,2,stdPktValues,rtrnValues);
-		smpX = stdPktValues[0]+(stdPktValues[1]<<8);
-		smpY = stdPktValues[2]+(stdPktValues[3]<<8);
+		//smpX = stdPktValues[0]+(stdPktValues[1]<<8);
+		//smpY = stdPktValues[2]+(stdPktValues[3]<<8);
 		fsButtons = stdPktValues[4];
 		x = rtrnValues[0];
-		y = rtrnValues[1];
+		//y = rtrnValues[1];
 		if(x < 85) i = ((i>=0x8000) ? 0x8000 : i*2);
 		else if(x > 170) i = ((i<=1) ? 1 : i/2);
 		else i=i;

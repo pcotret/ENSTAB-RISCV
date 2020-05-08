@@ -1,4 +1,4 @@
-BUILD_DIR=../soc_basesoc_nexys4ddr/
+BUILD_DIR=../soc_basesoc_nexys4ddr
 
 include $(BUILD_DIR)/software/include/generated/variables.mak
 include $(SOC_DIRECTORY)/software/common.mak
@@ -18,7 +18,7 @@ firmware.elf: $(OBJECTS)
 	$(LD) $(LDFLAGS) \
 		-T linker.ld \
 		-N -o $@ \
-		 $(BUILD_DIR)/software/libbase/crt0-$(CPU)-ctr.o \
+		 $(BUILD_DIR)/software/libbase/crt0-ctr.o \
 		$(OBJECTS) \
 		-L$(BUILD_DIR)/software/libbase \
 		-L$(BUILD_DIR)/software/libcompiler_rt \
