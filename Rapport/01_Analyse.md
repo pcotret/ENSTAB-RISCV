@@ -47,7 +47,7 @@ Le site officiel de la fondation RISC-V propose une liste de projets qui s'effor
 Afin d'affiner notre sélection, nous nous sommes imposés quelques critères:
 
 - La licence: de préférence libre
-- Le langage: de préférence VHDL, Verilog, SystemeVerilog
+- Le langage: de préférence VHDL, Verilog, SystemVerilog
 - Le projet doit être disponible sous GitHub
 - Le projet doit être suffisamment documenté
 - Le projet doit être régulièrement mis à jour
