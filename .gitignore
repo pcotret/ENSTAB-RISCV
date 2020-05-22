@@ -7,3 +7,4 @@ DEV/riscv64-unknown-elf-gcc-8.1.0-2019.01.0-x86_64-linux-ubuntu14.tar.gz
 DEV/soc_basesoc_nexys4ddr/
 DEV/firmware/firmware.elf
 DEV/firmware/firmware.bin
+DEV/build/

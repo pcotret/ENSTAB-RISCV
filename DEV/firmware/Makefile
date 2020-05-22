@@ -1,4 +1,4 @@
-BUILD_DIR=../soc_basesoc_nexys4ddr
+BUILD_DIR=../build/nexys4ddr
 
 include $(BUILD_DIR)/software/include/generated/variables.mak
 include $(SOC_DIRECTORY)/software/common.mak

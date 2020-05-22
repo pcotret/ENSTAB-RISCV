@@ -2,4 +2,4 @@
 
 import os
 
-os.system("djtgcfg prog -d Nexys4DDR -i 0 -f ./soc_basesoc_nexys4ddr/gateware/top.bit")
+os.system("djtgcfg prog -d Nexys4DDR -i 0 -f ./build/nexys4ddr/gateware/nexys4ddr.bit")
