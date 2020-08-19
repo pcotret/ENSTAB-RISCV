@@ -17,10 +17,10 @@ SECTIONS
 	.rodata :
 	{
 		. = ALIGN(4);
-		_frodata = .;
+		_fdata_rom = .;
 		*(.rodata .rodata.* .gnu.linkonce.r.*)
 		*(.rodata1)
-		_erodata = .;
+		_edata_rom = .;
 	} > main_ram
 
 	.data :
