@@ -17,10 +17,10 @@ SECTIONS
 	.rodata :
 	{
 		. = ALIGN(4);
-		_fdata_rom = .;
+		_frodata = .;
 		*(.rodata .rodata.* .gnu.linkonce.r.*)
 		*(.rodata1)
-		_edata_rom = .;
+		_erodata = .;
 	} > main_ram
 
 	.data :
@@ -51,3 +51,5 @@ SECTIONS
 }
 
 PROVIDE(_fstack = ORIGIN(sram) + LENGTH(sram) - 4);
+PROVIDE(_fdata_rom = LOADADDR(.data));
+PROVIDE(_edata_rom = LOADADDR(.data) + SIZEOF(.data));
