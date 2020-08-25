@@ -1,6 +1,7 @@
 # ENSTA Bretagne - Projet RISC-V
 
 > Projet éducatif visant à évaluer l'implémentation d'un processeur d'architecture RISC-V sur un FPGA en utilisant les outils de conception Migen et LiteX.
+> Contributeurs originaux : [@SylvainEnsta](https://github.com/SylvainEnsta) et [@durandau](https://github.com/durandau)
 
 RISC-V (http://riscv.org) est une architecture de processeur basée sur un jeu d'instruction moderne, totalement ouvert et libre de droits.
 
