@@ -1,5 +1,5 @@
 theme: jekyll-theme-minimal
 logo: /img/ensta-couleur.jpg
-description: Projet éducatif visant à évaluer l'implémentation d'un processeur d'architecture RISC-V sur un FPGA en utilisant les outils de conception Migen et LiteX. Contributeurs originaux : @SylvainEnsta https://github.com/SylvainEnsta et @durandau https://github.com/durandau
+description: Projet éducatif visant à évaluer l'implémentation d'un processeur d'architecture RISC-V sur un FPGA en utilisant les outils de conception Migen et LiteX. Contributeurs originaux [@SylvainEnsta](https://github.com/SylvainEnsta) et [@durandau](https://github.com/durandau)
 show_downloads: true
 title: RISC-V PoC with LiteX
