@@ -88,16 +88,7 @@ Dès lors qu'on a construit nos fonctions élémentaires, il est possible de con
 
 Avec un HDL, l'assemblage de fonctions élémentaires se fait à l'aise d'un composant "chapeau" (en anglais, on parlera de composant **top level**) et peut se représenter sous la forme suivante :
 
-```mermaid
-graph TD
-A[Composant chapeau] -->B[Processeur]
-A-->C[LED]
-A-->D[Mémoire]
-A-->E[Connectiques]
-A-->F[etc...]
-B-->D
-D-->B
-```
+![top_level](./img/top_level.png)
 
 Pour continuer sur l'analogie avec le monde des ordinateurs, le composant chapeau est en quelque sorte la carte mère du système complet : il définit les connexions entre les fonctions élémentaires. Pour celles et ceux qui sont adeptes des langages de programmation orientés objet, on peut voir cela comme suit :
 
@@ -122,12 +113,7 @@ Pour pouvoir être exécutés sur un circuit FPGA, le code HDL passe par un proc
 
 Pour les DSLs tels que Chisel, c'est un peu différent car on passe par une [représentation intermédiaire](https://github.com/freechipsproject/firrtl). Autrement dit, la synthèse Scala => bitstream n'est pas directe :
 
-```mermaid
-graph LR
-A[HDLs]-->B[Bitstream]
-C[DSLs]-->D[Représentation intermédiaire]
-D-->B
-```
+![dsl](./img/dsl.png)
 
 ### Chisel vs. HDLs
 
