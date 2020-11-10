@@ -1,8 +1,6 @@
-# LiteX : le framework open-source pour programmer du matériel en Python
-
-> Auguste Durand, Sylvain Leylde - Etudiants ENSTA Bretagne
+> [Auguste Durand](https://github.com/durandau), [Sylvain Leylde](https://github.com/SylvainEnsta) - Etudiants ENSTA Bretagne
 >
-> Pascal Cotret, Jean-Christophe Le Lann - Enseignants/chercheurs ENSTA Bretagne
+> [Pascal Cotret](https://github.com/pcotret/), [Jean-Christophe Le Lann](https://github.com/jc-ll) - Enseignants/chercheurs ENSTA Bretagne
 
 ## Introduction
 
@@ -178,9 +176,9 @@ Bien que le code ci-dessus présente un bloc simple, la communauté Migen/LiteX 
 
 ![litex](./img/litex.png)
 
-Une fois qu'on a notre module, on peut facilement connecter plusieurs modules entre eux (notre LED, un processeur dit *softcore*, de la vidéo, de l'Ethernet...) afin de créer notre propre système embarqué capable de faire tourner un petit noyau (mais chut, on verra ça plus tard :wink:). Tout comme les approches DSL Chisel/SpinalHDL, LiteX ne s'interface pas directement avec le circuit FPGA sur lequel notre système tournera : par conséquent, LiteX va convertir tout le code Python en HDL et ce dernier sera synthétisé/compilé pour la carte de développement qu'on aura choisi. Pour certains composants comme les processeurs, LiteX ira cloné le dépôt contenant le code HDL et le développeur n'aura qu'à instancier un objet équivalent dans son code Python.
+Une fois qu'on a notre module, on peut facilement connecter plusieurs modules entre eux (notre LED, un processeur dit *softcore*, de la vidéo, de l'Ethernet...) afin de créer notre propre système embarqué capable de faire tourner un petit noyau (mais chut, on verra ça plus tard). Tout comme les approches DSL Chisel/SpinalHDL, LiteX ne s'interface pas directement avec le circuit FPGA sur lequel notre système tournera : par conséquent, LiteX va convertir tout le code Python en HDL et ce dernier sera synthétisé/compilé pour la carte de développement qu'on aura choisi. Pour certains composants comme les processeurs, LiteX ira cloné le dépôt contenant le code HDL et le développeur n'aura qu'à instancier un objet équivalent dans son code Python.
 
-Bref, on se retrouve avec un langage orienté objet bien connu et facile à prendre en main pour construire notre propre système embarqué ! Pour illustrer le flot de développement, nous allons voir comme cela se goupille sur un projet étudiant qu'on a réalisé à l'ENSTA Bretagne où on a codé une plateforme multi-usage (dont un jeu type Snake :snake:)
+Bref, on se retrouve avec un langage orienté objet bien connu et facile à prendre en main pour construire notre propre système embarqué ! Pour illustrer le flot de développement, nous allons voir comme cela se goupille sur un projet étudiant qu'on a réalisé à l'ENSTA Bretagne où on a codé une plateforme multi-usage (dont un jeu type Snake)
 
 ## Cas d'étude - Implémentation d'un système complet pour un jeu type Snake
 
@@ -205,7 +203,7 @@ En ce qui concerne l'architecture matérielle qu'on va implémenter sur le FPGA,
 
 ### Développement du matériel
 
-Pour développer l'architecture présente dans la figure ci-dessus, on va devoir s'attaquer au Python. Le code complet est disponible ici : https://github.com/pcotret/RISCV/blob/master/DEV/buildNexys4ddr.py. En guise d'exemple, prenons le sous-ensemble minimal dont on aurait besoin pour jouer à Snake : on aurait donc besoin d'un processeur, d'un joystick et d'une sortie vidéo.
+Pour développer l'architecture présente dans la figure ci-dessus, on va devoir s'attaquer au Python. Le code complet est disponible ici : [https://github.com/pcotret/RISCV/blob/master/DEV/buildNexys4ddr.py](https://github.com/pcotret/RISCV/blob/master/DEV/buildNexys4ddr.py). En guise d'exemple, prenons le sous-ensemble minimal dont on aurait besoin pour jouer à Snake : on aurait donc besoin d'un processeur, d'un joystick et d'une sortie vidéo.
 
 ```python
 class BaseSoC(SoCCore):
@@ -232,11 +230,11 @@ class BaseSoC(SoCCore):
 ```
 
 - On commence tout d'abord par le processeur (`SoCCore.__init__`) : on peut choisir plusieurs caractéristiques telles que le type (ici un PicoRV32), sa fréquence, la taille des mémoires, etc.
-  - L'installation de LiteX aura téléchargé le code permettant d'instancier un processeur 100% HDL dans un module Python https://github.com/litex-hub/pythondata-cpu-picorv32
+  - L'installation de LiteX aura téléchargé le code permettant d'instancier un processeur 100% HDL dans un module Python [https://github.com/litex-hub/pythondata-cpu-picorv32](https://github.com/litex-hub/pythondata-cpu-picorv32)
   - Le code HDL des processeurs est régulièrement mis à jour par la communauté : on est donc à peu près sûrs d'avoir un CPU récent.
   - Selon les tailles passées dans le constructeur, LiteX instanciera les blocs mémoires en conséquence dans la limite du possible (la quantité de mémoire disponible dans les circuits FPGA est souvent limitée...).
 - On ajoute ensuite un joystick avec le protocole SPI et le VGA pour la vidéo.
-  - Pour des protocoles classiques, la description est faite directement en Python. Pour le SPI, rien de plus simple : on retrouve les 4 signaux du protocole MOSI/MISO/SCLK/SS https://github.com/pcotret/RISCV/blob/master/DEV/module/spijoystick.py
+  - Pour des protocoles classiques, la description est faite directement en Python. Pour le SPI, rien de plus simple : on retrouve les 4 signaux du protocole MOSI/MISO/SCLK/SS [https://github.com/pcotret/ENSTAB-RISCV/blob/master/DEV/module/spijoystick.py](https://github.com/pcotret/ENSTAB-RISCV/blob/master/DEV/module/spijoystick.py)
 
 On s'aperçoit qu'il est facile d'ajouter des composants par la suite pour agrémenter notre plateforme : on rajoute un sous-module, on branche les signaux en Python et c'est réglé ! En plus, comme la communauté est très active, il existe déjà de nombreux composants. Si nous avions voulu faire une architecture équivalente avec un HDL traditionnel, il aurait fallu en plus penser au bus de données qui est souvent complexe : cette étape est complètement gérée en interne par LiteX :smile:
 
@@ -246,7 +244,7 @@ Un aperçu du code Verilog dans l'IDE dédié. `nexys4ddr` est le composant chap
 
 ### Développement du logiciel
 
-Maintenant qu'on a notre architecture matériel, il nous faut tout de même un bout de logiciel pour faire tourner notre jeu Snake. Le code principal de la plateforme de démonstration contient uniquement l'essentiel pour avoir un menu avec des options représentant les différentes applications disponibles : https://github.com/pcotret/RISCV/blob/master/DEV/firmware/main.c. Pour ce projet de démonstration, c'est du bare-metal, pas besoin de plus. Mais on peut mettre un vrai Linux :penguin: à base de Buildroot : https://github.com/litex-hub/linux-on-litex-vexriscv/tree/master/buildroot
+Maintenant qu'on a notre architecture matériel, il nous faut tout de même un bout de logiciel pour faire tourner notre jeu Snake. Le code principal de la plateforme de démonstration contient uniquement l'essentiel pour avoir un menu avec des options représentant les différentes applications disponibles : [https://github.com/pcotret/ENSTA-BRISCV/blob/master/DEV/firmware/main.c](https://github.com/pcotret/ENSTA-BRISCV/blob/master/DEV/firmware/main.c). Pour ce projet de démonstration, c'est du bare-metal, pas besoin de plus. Mais on peut mettre un vrai Linux à base de Buildroot : [https://github.com/litex-hub/linux-on-litex-vexriscv/tree/master/buildroot](https://github.com/litex-hub/linux-on-litex-vexriscv/tree/master/buildroot)
 
 ```txt
 --=============== SoC ==================--
@@ -286,9 +284,9 @@ RUNTIME>
 
 ![demo](./img/demo.png)
 
-(bien évidemment, le score était élevé avant d'atteindre le game over :wink:)
+(bien évidemment, le score était élevé avant d'atteindre le game over !​)
 
-Si vous souhaitez reproduire la manipulation, tout le code est disponible sur Github : https://github.com/pcotret/RISCV
+Si vous souhaitez reproduire la manipulation, tout le code est disponible sur Github : [https://github.com/pcotret/ENSTAB-RISCV](https://github.com/pcotret/ENSTAB-RISCV)
 
 ## Références
 
