@@ -292,12 +292,12 @@ Si vous souhaitez reproduire la manipulation, tout le code est disponible sur Gi
 
 ## Références
 
-1. Fabien Marteau, HK 32, Des kits de développement FPGA à moins de 30€. https://connect.ed-diamond.com/Hackable/HK-032/Des-kits-de-developpement-FPGA-a-moins-de-30-EU
-2. Fabien Marteau, HK 31, La liberté jusqu’au cœur du processeur avec RISC-V. https://connect.ed-diamond.com/Hackable/HK-031/La-liberte-jusqu-au-coeur-du-processeur-avec-RISC-V
-3. Patrice Kadionik, HK 29, Créez simplement votre périphérique matériel avec le langage C. https://connect.ed-diamond.com/Hackable/HK-029/Creez-simplement-votre-peripherique-materiel-avec-le-langage-C
-4. Sébastien Bourdeauducq, GLMF 149, Migen, une « boîte à outils » en Python pour concevoir des circuits logiques complexes. https://connect.ed-diamond.com/GNU-Linux-Magazine/GLMF-149/Migen-une-boite-a-outils-en-Python-pour-concevoir-des-circuits-logiques-complexes
-5. Denis Bodor, OS 6, FPGA, HDL et Linux : petite mise en bouche pratique. https://connect.ed-diamond.com/Open-Silicium/OS-006/FPGA-HDL-et-Linux-petite-mise-en-bouche-pratique
-6. Dominique Taboureux, OS 9, Introduction au langage VHDL par l'exemple. https://connect.ed-diamond.com/Open-Silicium/OS-009/Introduction-au-langage-VHDL-par-l-exemple
-7. https://github.com/enjoy-digital/litex
+1. Fabien Marteau, HK 32, Des kits de développement FPGA à moins de 30€. [https://connect.ed-diamond.com/Hackable/HK-032/Des-kits-de-developpement-FPGA-a-moins-de-30-EU](https://connect.ed-diamond.com/Hackable/HK-032/Des-kits-de-developpement-FPGA-a-moins-de-30-EU)
+2. Fabien Marteau, HK 31, La liberté jusqu’au cœur du processeur avec RISC-V. [https://connect.ed-diamond.com/Hackable/HK-031/La-liberte-jusqu-au-coeur-du-processeur-avec-RISC-V](https://connect.ed-diamond.com/Hackable/HK-031/La-liberte-jusqu-au-coeur-du-processeur-avec-RISC-V)
+3. Patrice Kadionik, HK 29, Créez simplement votre périphérique matériel avec le langage C. [https://connect.ed-diamond.com/Hackable/HK-029/Creez-simplement-votre-peripherique-materiel-avec-le-langage-C](https://connect.ed-diamond.com/Hackable/HK-029/Creez-simplement-votre-peripherique-materiel-avec-le-langage-C)
+4. Sébastien Bourdeauducq, GLMF 149, Migen, une « boîte à outils » en Python pour concevoir des circuits logiques complexes. [https://connect.ed-diamond.com/GNU-Linux-Magazine/GLMF-149/Migen-une-boite-a-outils-en-Python-pour-concevoir-des-circuits-logiques-complexes](https://connect.ed-diamond.com/GNU-Linux-Magazine/GLMF-149/Migen-une-boite-a-outils-en-Python-pour-concevoir-des-circuits-logiques-complexes)
+5. Denis Bodor, OS 6, FPGA, HDL et Linux : petite mise en bouche pratique. [https://connect.ed-diamond.com/Open-Silicium/OS-006/FPGA-HDL-et-Linux-petite-mise-en-bouche-pratique](https://connect.ed-diamond.com/Open-Silicium/OS-006/FPGA-HDL-et-Linux-petite-mise-en-bouche-pratique)
+6. Dominique Taboureux, OS 9, Introduction au langage VHDL par l'exemple. [https://connect.ed-diamond.com/Open-Silicium/OS-009/Introduction-au-langage-VHDL-par-l-exemple](https://connect.ed-diamond.com/Open-Silicium/OS-009/Introduction-au-langage-VHDL-par-l-exemple)
+7. Welcome to LiteX! [https://github.com/enjoy-digital/litex](https://github.com/enjoy-digital/litex)
 8. Kermarrec et al, [LiteX: an open-source SoC builder and library based on Migen Python DSL](https://osda.gitlab.io/19/1.1.pdf)
-9. Cours de Télécom ParisTech : https://hdl.telecom-paristech.fr/
+9. Cours de Télécom ParisTech : [https://hdl.telecom-paristech.fr/](https://hdl.telecom-paristech.fr/)
