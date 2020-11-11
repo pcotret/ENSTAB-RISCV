@@ -6,7 +6,7 @@
 
 Les programmes quels qu'ils soient s'exécutent sur une plateforme matérielle après compilation : il peut s'agir d'un processeur (ARM, Intel, etc) ou d'un microcontrôleur enfoui au sein d'un objet connecté.
 
-Le développement de la plateforme matérielle est un exercice particulier. C'est pour cela qu'on réalise généralement des prototypes sur un composant de type FPGA ou *Field-Programmable Gate Array*, disponibles dans des kits de développements peu onéreux (voir l'excellent article de Fabien Marteau dans Hackable n°31 **[1]**). Le FPGA a la capacité d'être reconfigurable : on peut donc personnaliser notre modèle de processeur et la plupart des composants associés (connectiques, contrôleurs mémoire, etc) jusqu'à en avoir une version suffisament performante pour pouvoir être fabriquée chez un fondeur.
+Le développement de la plateforme matérielle est un exercice particulier. C'est pour cela qu'on réalise généralement des prototypes sur un composant de type FPGA ou *Field-Programmable Gate Array*, disponibles dans des kits de développements peu onéreux (voir l'excellent article de Fabien Marteau dans Hackable n°31 **[1]**). Le FPGA a la capacité d'être reconfigurable : on peut donc personnaliser notre modèle de processeur et la plupart des composants associés (connectiques, contrôleurs mémoire, etc) jusqu'à en avoir une version suffisamment performante pour pouvoir être fabriquée chez un fondeur.
 
 Le développement sur les composants FPGA fait appel à des langages bien spécifiques mais nous allons voir dans cet article qu'il existe des alternatives utilisant des langages généralement dédiés au développement logiciel qui permettent de combiner le meilleur des deux mondes pour un développement rapide et accessible au plus grand nombre.
 
@@ -65,7 +65,7 @@ always @ (posedge clk)
             end
     end
     assign led = led_temp;
-endmodule 
+endmodule
 ```
 
 Le code se compose de deux parties principales :
@@ -84,7 +84,7 @@ Un des points importants des HDLs est leur parallélisme. Un processeur classiqu
 
 Dès lors qu'on a construit nos fonctions élémentaires, il est possible de construire des éléments plus complexes comme un [processeur](https://riscv.org/). Ceci dit, un processeur seul ne suffit pas à créer un système sur puce (SoC ou *System-on-Chip*) capable de faire tourner votre OS préféré : il faut y ajouter de la mémoire, des connectiques (vidéo, USB), de quoi afficher, du Wifi ou du Bluetooth, etc.
 
-Avec un HDL, l'assemblage de fonctions élémentaires se fait à l'aise d'un composant "chapeau" (en anglais, on parlera de composant **top level**) et peut se représenter sous la forme suivante :
+Avec un HDL, l'assemblage de fonctions élémentaires se fait à l'aide d'un composant "chapeau" (en anglais, on parlera de composant **top level**) et peut se représenter sous la forme suivante :
 
 ![top_level](./img/top_level.png)
 
@@ -95,19 +95,19 @@ Pour continuer sur l'analogie avec le monde des ordinateurs, le composant chapea
 
 L'élaboration du schéma de connexion est assez souvent à la charge du développeur. Au delà des contraintes liées à la syntaxe du langage, il doit avoir conscience de plusieurs facteurs :
 
-- L'interaction physique entre les composants (est-ce que le processeur a le droit de lire dans la mémoire DDR ?).
+- L'interaction physique entre les composants (est-ce que le processeur doit pouvoir accéder à mémoire DDR ?).
 - La gestion des horloges qui cadencent les différents blocs.
 - L'organisation mémoire à l'intérieur du SoC : taille des mémoires et des caches, *memory mapping* des différents composants (à quelle adresse est accesible la mémoire DDR our le port HDMI).
 
-L'exerecice est potentiellement complexe quand on souhaite assembler des composants hétérogènes venant de sources diverses. C'est une des raisons pour lesquelles ce type de développement est réservé à des ingénieurs *hardware*. Heureusement, il existe des alternatives qui permettent d'automatiser certaines de ces tâches et les environnements de développement matériel tenden à proposer des outils rendant accesible le développement matériel à des personnes venant du développement logiciel. 
+L'exerecice est potentiellement complexe quand on souhaite assembler des composants hétérogènes venant de sources diverses. C'est une des raisons pour lesquelles ce type de développement est réservé à des ingénieurs *hardware*. Heureusement, il existe des alternatives qui permettent d'automatiser certaines de ces tâches et les environnements de développement matériel tendent à proposer des outils rendant accesible le développement matériel à des personnes venant du développement logiciel.
 
 ## Description du matériel avec des langages alternatifs
 
-La majorité des langages de programmation n'est pas verouillé à un domaine applicatif donné. En ce qui concerne le développement matériel, il existe des langages dédiés également appelés DSLs (*Domain Specific Language*) qui sont plus haut-niveau que les HDLs traditionnels mais qui permettent tout de même de produire du code compilable pour les circuits matériels : on peut citer par exemple [Chisel](http://www.fabienm.eu/flf/hdl/chisel/) et [SpinalHDL](http://www.fabienm.eu/flf/category/langages/spinalhdl/) (un fork).
+La majorité des langages de programmation n'est pas verouillée à un domaine applicatif donné. En ce qui concerne le développement matériel, il existe des langages dédiés également appelés DSLs (*Domain Specific Language*) qui sont plus haut-niveau que les HDLs traditionnels mais qui permettent tout de même de produire du code compilable pour les circuits matériels : on peut citer par exemple [Chisel](http://www.fabienm.eu/flf/hdl/chisel/) et [SpinalHDL](http://www.fabienm.eu/flf/category/langages/spinalhdl/) (un fork).
 
 ### Compilation du matériel
 
-Pour pouvoir être exécutés sur un circuit FPGA, le code HDL passe par un processus dit de *synthèse* qui permet de passer du code à un bitstream qui est le fichier final téléchargé sur le circuit FPGA (cette étape est analogue à la compilation où on passe d'un code source à un binaire prêt à être exécuté). 
+Pour pouvoir être exécutés sur un circuit FPGA, le code HDL passe par un processus dit de *synthèse* qui permet de passer du code à un bitstream qui est le fichier final téléchargé sur le circuit FPGA (cette étape est analogue à la compilation où on passe d'un code source à un binaire prêt à être exécuté).
 
 Pour les DSLs tels que Chisel, c'est un peu différent car on passe par une [représentation intermédiaire](https://github.com/freechipsproject/firrtl). Autrement dit, la synthèse Scala => bitstream n'est pas directe :
 
@@ -149,7 +149,7 @@ Il existe des solutions dans d'autres langages. Xilinx et Intel, les 2 principau
 
 Migen est une boîte à outils en Python, basée sur un arbre de syntaxe abstraite, qui contient une bibliothèque de composants et même un simulateur. Tout comme les DSLs décrits précédemment, le code peut être transformé en VHDL ou Verilog, les langages historiques pour le développement matériel. Cependant, Migen ne fait pas appel à de la programmation évenementielle qu'on retrouve dans la plupart des HDLs ou d'autres langages de programmation classiques (notamment pour la construction de GUI). Par contre, Migen apporte des notions de logique combinatoire et synchrone qui sont des notions essentielles dans le développement matériel.
 
-LiteX (basé sur Migen) va un peu plus loin en proposant un mécanisme de construction de SoC et un nombre grandissant de composants décrits en HDL (VHDL ou Verilog) mais avec un wrapper écrit en Python qui permet de les connecter au reste du système.
+LiteX (basé sur Migen) va un peu plus loin en proposant un mécanisme de construction de SoC et un nombre grandissant de composants décrits en HDL (Migen , VHDL ou Verilog) ainsi que les fonctions d'intégration en Python permettant d'intégrer simplement ces composants au reste du système.
 
 ### Exemple de code Migen/LiteX
 
@@ -176,7 +176,7 @@ Bien que le code ci-dessus présente un bloc simple, la communauté Migen/LiteX 
 
 ![litex](./img/litex.png)
 
-Une fois qu'on a notre module, on peut facilement connecter plusieurs modules entre eux (notre LED, un processeur dit *softcore*, de la vidéo, de l'Ethernet...) afin de créer notre propre système embarqué capable de faire tourner un petit noyau (mais chut, on verra ça plus tard). Tout comme les approches DSL Chisel/SpinalHDL, LiteX ne s'interface pas directement avec le circuit FPGA sur lequel notre système tournera : par conséquent, LiteX va convertir tout le code Python en HDL et ce dernier sera synthétisé/compilé pour la carte de développement qu'on aura choisi. Pour certains composants comme les processeurs, LiteX ira cloné le dépôt contenant le code HDL et le développeur n'aura qu'à instancier un objet équivalent dans son code Python.
+Une fois qu'on a notre module, on peut facilement connecter plusieurs modules entre eux (notre LED, un processeur dit *softcore*, de la vidéo, de l'Ethernet...) afin de créer notre propre système embarqué capable de faire tourner un petit noyau (mais chut, on verra ça plus tard). Tout comme les approches DSL Chisel/SpinalHDL, LiteX ne s'interface pas directement avec le circuit FPGA sur lequel notre système tournera : par conséquent, LiteX va convertir tout le code Python en HDL et ce dernier sera synthétisé/compilé pour la carte de développement qu'on aura choisi. Pour certains composants comme les processeurs, LiteX ira cloner le dépôt contenant le code HDL et le développeur n'aura qu'à instancier un objet équivalent dans son code Python.
 
 Bref, on se retrouve avec un langage orienté objet bien connu et facile à prendre en main pour construire notre propre système embarqué ! Pour illustrer le flot de développement, nous allons voir comme cela se goupille sur un projet étudiant qu'on a réalisé à l'ENSTA Bretagne où on a codé une plateforme multi-usage (dont un jeu type Snake)
 
@@ -217,7 +217,7 @@ class BaseSoC(SoCCore):
 			integrated_main_ram_size=16*1024)
 		#
 		# [...]
-		# 
+		#
 		# Joystick SPI
 		SoCCore.add_csr(self,"joystick")
 		self.submodules.joystick = spijoystick.SpiJoystick(platform.request("joystick"))
@@ -244,7 +244,7 @@ Un aperçu du code Verilog dans l'IDE dédié. `nexys4ddr` est le composant chap
 
 ### Développement du logiciel
 
-Maintenant qu'on a notre architecture matériel, il nous faut tout de même un bout de logiciel pour faire tourner notre jeu Snake. Le code principal de la plateforme de démonstration contient uniquement l'essentiel pour avoir un menu avec des options représentant les différentes applications disponibles : [https://github.com/pcotret/ENSTA-BRISCV/blob/master/DEV/firmware/main.c](https://github.com/pcotret/ENSTA-BRISCV/blob/master/DEV/firmware/main.c). Pour ce projet de démonstration, c'est du bare-metal, pas besoin de plus. Mais on peut mettre un vrai Linux à base de Buildroot : [https://github.com/litex-hub/linux-on-litex-vexriscv/tree/master/buildroot](https://github.com/litex-hub/linux-on-litex-vexriscv/tree/master/buildroot)
+Maintenant qu'on a notre architecture matérielle, il nous faut tout de même un bout de logiciel pour faire tourner notre jeu Snake. Le code principal de la plateforme de démonstration contient uniquement l'essentiel pour avoir un menu avec des options représentant les différentes applications disponibles : [https://github.com/pcotret/ENSTA-BRISCV/blob/master/DEV/firmware/main.c](https://github.com/pcotret/ENSTA-BRISCV/blob/master/DEV/firmware/main.c). Pour ce projet de démonstration, c'est du bare-metal, pas besoin de plus. Mais on peut mettre un vrai Linux à base de Buildroot : [https://github.com/litex-hub/linux-on-litex-vexriscv/tree/master/buildroot](https://github.com/litex-hub/linux-on-litex-vexriscv/tree/master/buildroot)
 
 ```txt
 --=============== SoC ==================--
